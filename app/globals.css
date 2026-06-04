@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── DESIGN TOKENS — SEGUREPP ─────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Paleta oficial aprobada (Auditoría Final) */
+  --color-navy:       #071D4F;
+  --color-navy-dark:  #040F2E;
+  --color-amber:      #F8AF00;
+  --color-gold:       #FFCA36;
+  --color-blue:       #1A6FBF;
+  --color-ice:        #E3F3FF;
+  --color-sand:       #D6BEAC;
+  --color-teal:       #0E7490; /* Solo badges Equipos Médicos */
+  --color-green:      #16A34A; /* Solo WhatsApp CTA / éxito */
+  --color-red:        #BF131F; /* Solo errores y alertas críticas */
+  --color-red-form:   #DC2626; /* Solo errores de formulario */
+  --color-gray-1:     #F4F6F9;
+  --color-gray-2:     #E2E8F0;
+  --color-gray-3:     #94A3B8;
+  --color-gray-4:     #64748B;
+  --color-dark:       #040F2E;
+
+  /* Tipografías */
+  --font-playfair:    var(--font-playfair-display);
+  --font-sans:        var(--font-montserrat);
+  --font-mono:        'JetBrains Mono', monospace;
+
+  /* Sombras personalizadas */
+  --shadow-amber:     0 4px 20px rgba(248,175,0,0.25);
+  --shadow-navy:      0 4px 20px rgba(7,29,79,0.30);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── RESET BASE ────────────────────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #071D4F;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ─── SCROLL REVEAL ─────────────────────────────────────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── PREFERS-REDUCED-MOTION — OBLIGATORIO ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .kpi-counter {
+    transition: none !important;
+  }
+}
+
+/* ─── WEBKIT TAP HIGHLIGHT ──────────────────────────────────────────────────── */
+a, button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── FOCUS VISIBLE ─────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #F8AF00;
+  outline-offset: 2px;
+}
+
