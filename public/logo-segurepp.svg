@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none" role="img" aria-label="SEGUREPP">
+  <!-- Isotipo: cuadrado navy con S amber -->
+  <rect width="40" height="40" x="0" y="4" rx="4" fill="#071D4F"/>
+  <text x="20" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#F8AF00">S</text>
+  <!-- Wordmark -->
+  <text x="50" y="30" font-family="Arial, sans-serif" font-weight="700" font-size="16" letter-spacing="3" fill="#071D4F">SEGUREPP</text>
+</svg>

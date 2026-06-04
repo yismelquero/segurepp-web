@@ -20,7 +20,7 @@ interface ProductActionsProps {
 export function ProductActions({
   nombreProducto,
   fichaTecnicaUrl,
-  whatsapp = '59178407223',
+  whatsapp = process.env.NEXT_PUBLIC_WA_NUMBER ?? '59178407223',
 }: ProductActionsProps) {
   const waMessage = encodeURIComponent(
     `Hola, me interesa cotizar el producto: ${nombreProducto}. ¿Me pueden dar más información?`

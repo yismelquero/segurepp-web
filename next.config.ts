@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // ── Branding ──────────────────────────────────────────────────────────────
+  poweredByHeader: false,
+  compress: true,
+
   // ── Imágenes ──────────────────────────────────────────────────────────────
   images: {
     remotePatterns: [
@@ -11,6 +15,9 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
+    deviceSizes: [375, 640, 768, 1024, 1280, 1440, 1920],
+    imageSizes: [64, 128, 256, 384],
+    minimumCacheTTL: 3600,
   },
 
   // ── Headers de Seguridad ──────────────────────────────────────────────────
@@ -31,6 +38,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
         source: '/images/(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
@@ -42,6 +55,7 @@ const nextConfig: NextConfig = {
   // ── Redirects ─────────────────────────────────────────────────────────────
   async redirects() {
     return [
+      // Auditoría Final CORR-04: URL legacy → canonical
       {
         source: '/catalogo/uniformes',
         destination: '/catalogo/uniformes-merchandising',
@@ -52,13 +66,18 @@ const nextConfig: NextConfig = {
         destination: '/catalogo/uniformes-merchandising/:slug',
         permanent: true,
       },
-      // Studio → Sanity CDN (Turbopack incompatible con Sanity Studio embebido)
+      // Studio → Sanity CDN (incompatible con Turbopack/Next.js 16)
       {
         source: '/studio',
         destination: 'https://segurepp.sanity.studio',
         permanent: false,
       },
     ]
+  },
+
+  // ── Turbopack: silenciar advertencia de workspace root ────────────────────
+  turbopack: {
+    root: __dirname,
   },
 
   // ── Compilación ───────────────────────────────────────────────────────────

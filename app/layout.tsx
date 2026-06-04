@@ -19,17 +19,11 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'SEGUREPP',
     locale: 'es_BO',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes en Bolivia',
-      },
-    ],
+    // app/opengraph-image.tsx genera la imagen automáticamente con next/og
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@segurepp',
   },
   robots: {
     index: true,
