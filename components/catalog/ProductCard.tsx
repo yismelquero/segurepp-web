@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { ProductoCard } from '@/types'
 import { LINEA_SLUGS, LINEA_COLORS } from '@/lib/utils'
-import { imageUrl } from '@/lib/sanity/image'
 
 interface ProductCardProps {
   producto: ProductoCard
@@ -17,9 +16,7 @@ export function ProductCard({ producto }: ProductCardProps) {
   const lineaSlug = LINEA_SLUGS[producto.lineaNegocio] ?? 'equipos-medicos'
   const accentColor = LINEA_COLORS[producto.lineaNegocio] ?? '#071D4F'
   const href = `/catalogo/${lineaSlug}/${producto.slug}`
-  const imgSrc = producto.imagenes?.[0]
-    ? imageUrl(producto.imagenes[0], { width: 400, height: 280 })
-    : null
+  const imgSrc = producto.imagenes?.[0] ?? null
 
   return (
     <article
@@ -35,7 +32,7 @@ export function ProductCard({ producto }: ProductCardProps) {
               alt={producto.imagenesAlt?.[0] ?? producto.nombre}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-contain p-4 group-hover:scale-[1.02] transition-transform duration-300"
+              className="object-contain p-4"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">

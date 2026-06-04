@@ -3,12 +3,8 @@ import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { CategoryTabs } from '@/components/catalog/CategoryTabs'
 import { ProductCard } from '@/components/catalog/ProductCard'
-import { sanityFetch } from '@/lib/sanity/client'
-import { TODOS_PRODUCTOS } from '@/lib/sanity/queries'
 import { schemaBreadcrumb } from '@/lib/schema-org'
-import type { ProductoCard } from '@/types'
-
-export const revalidate = 3600
+import { getTodosProductos } from '@/data/productos'
 
 export const metadata: Metadata = {
   title: 'Catálogo de Productos · Equipos, Seguridad, Uniformes | SEGUREPP',
@@ -22,7 +18,6 @@ const breadcrumb = [
   { name: 'Catálogo', url: '/catalogo' },
 ]
 
-// Tabs de las 3 líneas — Auditoría Final sección 4.4
 const CATALOG_TABS = [
   { label: 'Todos', href: '/catalogo', active: true },
   { label: 'Equipos Médicos', href: '/catalogo/equipos-medicos', active: false },
@@ -30,8 +25,8 @@ const CATALOG_TABS = [
   { label: 'Uniformes y Merchandising', href: '/catalogo/uniformes-merchandising', active: false },
 ]
 
-export default async function CatalogoPage() {
-  const productos = await sanityFetch<ProductoCard[]>(TODOS_PRODUCTOS, {}, 3600).catch(() => [])
+export default function CatalogoPage() {
+  const productos = getTodosProductos()
 
   return (
     <>
@@ -59,11 +54,11 @@ export default async function CatalogoPage() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {productos.length > 0 ? (
-            productos.map((p) => <ProductCard key={p._id} producto={p} />)
+            productos.map((p) => <ProductCard key={p.id} producto={p} />)
           ) : (
             <div className="col-span-full py-20 text-center">
               <p className="text-gray-3 text-[14px]" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                Cargando catálogo... Configura Sanity CMS para ver los productos.
+                Catálogo en preparación. Contáctenos para cotización personalizada.
               </p>
               <Link
                 href="/contacto"

@@ -4,9 +4,7 @@ import { KPIBar } from '@/components/home/KPIBar'
 import { SolutionsGrid } from '@/components/home/SolutionsGrid'
 import { ClientsSection } from '@/components/home/ClientsSection'
 import { FinalCTA } from '@/components/home/FinalCTA'
-import { sanityFetch } from '@/lib/sanity/client'
-import { CLIENTES_ACTIVOS } from '@/lib/sanity/queries'
-import type { Cliente } from '@/types'
+import { getClientesActivos } from '@/data/clientes'
 
 export const metadata: Metadata = {
   title: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes en Bolivia',
@@ -21,9 +19,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function HomePage() {
-  // ISR: revalidar cada hora
-  const clientes = await sanityFetch<Cliente[]>(CLIENTES_ACTIVOS, {}, 3600).catch(() => [])
+export default function HomePage() {
+  const clientes = getClientesActivos()
 
   return (
     <>

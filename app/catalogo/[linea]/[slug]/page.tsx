@@ -1,33 +1,25 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import { sanityFetch } from '@/lib/sanity/client'
-import { PRODUCTO_POR_SLUG, TODOS_SLUGS_PRODUCTOS, PRODUCTOS_RELACIONADOS } from '@/lib/sanity/queries'
 import { ProductActions } from '@/components/product/ProductActions'
 import { ProductCard } from '@/components/catalog/ProductCard'
 import { Breadcrumb } from '@/components/global/Breadcrumb'
 import { Container } from '@/components/global/Container'
-import { imageUrl } from '@/lib/sanity/image'
 import { schemaBreadcrumb, schemaProduct } from '@/lib/schema-org'
 import { LINEA_LABELS, LINEA_SLUGS, SLUG_TO_LINEA } from '@/lib/utils'
-import type { Producto, ProductoCard as ProductoCardType, ProductoParams } from '@/types'
+import { getProductoBySlug, getProductosRelacionados, getTodosSlugProductos } from '@/data/productos'
+import type { ProductoParams } from '@/types'
 
-// ISR: revalidar fichas cada hora
-export const revalidate = 3600
-
-export async function generateStaticParams() {
-  const products = await sanityFetch<Array<{ slug: string; lineaNegocio: string }>>(
-    TODOS_SLUGS_PRODUCTOS, {}, false
-  )
-  return products.map((p) => ({
+export function generateStaticParams() {
+  return getTodosSlugProductos().map((p) => ({
     linea: LINEA_SLUGS[p.lineaNegocio] ?? 'equipos-medicos',
     slug: p.slug,
   }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<ProductoParams> }): Promise<Metadata> {
-  const { slug } = await params
-  const producto = await sanityFetch<Producto>(PRODUCTO_POR_SLUG, { slug }, false)
+  const { slug, linea } = await params
+  const producto = getProductoBySlug(slug)
   if (!producto) return { title: 'Producto no encontrado' }
 
   const title = producto.metaTitle ?? `${producto.nombre} · Bolivia | SEGUREPP`
@@ -36,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<ProductoPar
   return {
     title,
     description,
-    alternates: { canonical: `/catalogo/${LINEA_SLUGS[producto.lineaNegocio]}/${slug}` },
+    alternates: { canonical: `/catalogo/${linea}/${slug}` },
     openGraph: { title, description },
   }
 }
@@ -45,18 +37,12 @@ export default async function ProductoPage({ params }: { params: Promise<Product
   const { linea, slug } = await params
   const lineaEnum = SLUG_TO_LINEA[linea]
 
-  const [producto, relacionados] = await Promise.all([
-    sanityFetch<Producto>(PRODUCTO_POR_SLUG, { slug }, 3600),
-    lineaEnum
-      ? sanityFetch<ProductoCardType[]>(PRODUCTOS_RELACIONADOS, { linea: lineaEnum, slug }, 3600)
-      : Promise.resolve([]),
-  ])
-
+  const producto = getProductoBySlug(slug)
   if (!producto) notFound()
 
-  const imgPrincipal = producto.imagenes?.[0]
-    ? imageUrl(producto.imagenes[0], { width: 800, height: 600 })
-    : null
+  const relacionados = lineaEnum ? getProductosRelacionados(lineaEnum, slug) : []
+
+  const imgPrincipal = producto.imagenes?.[0] ?? null
 
   const breadcrumbItems = [
     { label: 'Inicio', href: '/' },
@@ -64,7 +50,6 @@ export default async function ProductoPage({ params }: { params: Promise<Product
     { label: LINEA_LABELS[producto.lineaNegocio] ?? '', href: `/catalogo/${linea}` },
     { label: producto.nombre, href: `/catalogo/${linea}/${slug}` },
   ]
-  // Schema breadcrumb usa { name, url }
   const breadcrumbSchema = breadcrumbItems.map((b) => ({ name: b.label, url: b.href }))
 
   return (
@@ -99,7 +84,6 @@ export default async function ProductoPage({ params }: { params: Promise<Product
       <Container className="py-8 lg:py-12">
         <Breadcrumb items={breadcrumbItems} className="mb-6" />
 
-        {/* Layout ficha — E3 sección 3.6 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
           {/* Galería */}
@@ -132,7 +116,7 @@ export default async function ProductoPage({ params }: { params: Promise<Product
                     className="flex-none w-16 h-16 rounded border border-gray-2 overflow-hidden bg-gray-1"
                   >
                     <Image
-                      src={imageUrl(img, { width: 80, height: 80 })}
+                      src={img}
                       alt={producto.imagenesAlt?.[i] ?? `${producto.nombre} vista ${i + 1}`}
                       width={64}
                       height={64}
@@ -146,7 +130,6 @@ export default async function ProductoPage({ params }: { params: Promise<Product
 
           {/* Información */}
           <div className="flex flex-col">
-            {/* Breadcrumb de categoría */}
             <span
               className="text-[9px] font-bold uppercase tracking-wider mb-2"
               style={{ color: '#0E7490', fontFamily: 'var(--font-montserrat)' }}
@@ -174,13 +157,11 @@ export default async function ProductoPage({ params }: { params: Promise<Product
               {producto.descripcionCorta}
             </p>
 
-            {/* 4 CTAs obligatorios */}
             <ProductActions
               nombreProducto={producto.nombre}
-              fichaTecnicaUrl={producto.fichaTecnicaPDF?.asset?.url}
+              fichaTecnicaUrl={producto.fichaTecnicaUrl}
             />
 
-            {/* SKU */}
             <p
               className="text-gray-3 text-[10px] mt-4"
               style={{ fontFamily: 'var(--font-montserrat)' }}
@@ -188,7 +169,6 @@ export default async function ProductoPage({ params }: { params: Promise<Product
               Ref: {producto.sku}
             </p>
 
-            {/* Especificaciones */}
             {producto.especificaciones?.length ? (
               <div className="mt-6 border-t border-gray-2 pt-4">
                 <h2
@@ -234,7 +214,7 @@ export default async function ProductoPage({ params }: { params: Promise<Product
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relacionados.map((p) => (
-                <ProductCard key={p._id} producto={p} />
+                <ProductCard key={p.id} producto={p} />
               ))}
             </div>
           </div>

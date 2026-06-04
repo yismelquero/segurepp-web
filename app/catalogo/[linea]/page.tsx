@@ -4,15 +4,11 @@ import { Container } from '@/components/global/Container'
 import { CategoryTabs } from '@/components/catalog/CategoryTabs'
 import { ProductCard } from '@/components/catalog/ProductCard'
 import { Breadcrumb } from '@/components/global/Breadcrumb'
-import { sanityFetch } from '@/lib/sanity/client'
-import { PRODUCTOS_POR_LINEA } from '@/lib/sanity/queries'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 import { LINEA_LABELS, SLUG_TO_LINEA } from '@/lib/utils'
-import type { ProductoCard as ProductoCardType, LineaParams } from '@/types'
+import { getProductosByLinea } from '@/data/productos'
+import type { LineaParams } from '@/types'
 
-export const revalidate = 3600
-
-// Solo 3 slugs válidos — Auditoría Final sección 4.4
 const VALID_LINEAS = ['equipos-medicos', 'seguridad-industrial', 'uniformes-merchandising']
 
 const SEO_META: Record<string, { title: string; description: string }> = {
@@ -33,7 +29,7 @@ const SEO_META: Record<string, { title: string; description: string }> = {
   },
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return VALID_LINEAS.map((linea) => ({ linea }))
 }
 
@@ -55,10 +51,7 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
 
   const lineaEnum = SLUG_TO_LINEA[linea]
   const lineaLabel = LINEA_LABELS[lineaEnum] ?? linea
-
-  const productos = await sanityFetch<ProductoCardType[]>(
-    PRODUCTOS_POR_LINEA, { linea: lineaEnum }, 3600
-  ).catch(() => [])
+  const productos = getProductosByLinea(lineaEnum)
 
   const breadcrumbSchema = [
     { name: 'Inicio', url: '/' },
@@ -105,7 +98,7 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {productos.length > 0 ? (
-            productos.map((p) => <ProductCard key={p._id} producto={p} />)
+            productos.map((p) => <ProductCard key={p.id} producto={p} />)
           ) : (
             <div className="col-span-full py-20 text-center">
               <p className="text-gray-3 text-[14px]" style={{ fontFamily: 'var(--font-montserrat)' }}>
@@ -115,7 +108,6 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
           )}
         </div>
 
-        {/* Bloque SEO local — Auditoría Final sección 4.5 (E5 sección 5.4.3) */}
         <div className="mt-16 p-6 bg-gray-1 rounded-lg border border-gray-2">
           <h2
             className="text-navy font-bold text-[16px] mb-3"

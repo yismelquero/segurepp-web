@@ -4,26 +4,24 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
 import type { Cliente } from '@/types'
-import { imageUrl } from '@/lib/sanity/image'
 
 interface ClientsSectionProps {
   clientes: Cliente[]
 }
 
 const SECTORES = [
-  { label: 'Todos', value: 'todos' },
-  { label: 'Salud', value: 'salud' },
-  { label: 'Minería', value: 'mineria' },
-  { label: 'Industria', value: 'industria' },
-  { label: 'Educación', value: 'educacion' },
-  { label: 'Sector público', value: 'publico' },
-  { label: 'Construcción', value: 'construccion' },
+  { label: 'Todos' },
+  { label: 'Salud' },
+  { label: 'Minería' },
+  { label: 'Industria' },
+  { label: 'Educación' },
+  { label: 'Sector público' },
+  { label: 'Construcción' },
 ]
 
 /**
  * "Empresas que confían en SEGUREPP"
  * Auditoría Final: SOLO clientes, no partners ni distribuidores.
- * Nomenclatura correcta: "Empresas que confían en SEGUREPP"
  */
 export function ClientsSection({ clientes }: ClientsSectionProps) {
   return (
@@ -58,7 +56,7 @@ export function ClientsSection({ clientes }: ClientsSectionProps) {
           </p>
         </motion.div>
 
-        {/* Chips de sector — scroll horizontal en mobile */}
+        {/* Chips de sector */}
         <div className="flex gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
           {SECTORES.map(({ label }) => (
             <span
@@ -82,24 +80,22 @@ export function ClientsSection({ clientes }: ClientsSectionProps) {
           >
             {clientes.slice(0, 12).map((cliente) => (
               <motion.div
-                key={cliente._id}
+                key={cliente.id}
                 variants={staggerItem}
                 className="bg-white border border-gray-2 rounded-md p-4 flex items-center justify-center h-20 hover:shadow-md hover:border-gray-3 transition-all duration-180"
               >
-                {cliente.logo && (
-                  <Image
-                    src={imageUrl(cliente.logo, { width: 120, height: 60 })}
-                    alt={cliente.logoAlt}
-                    width={120}
-                    height={60}
-                    className="object-contain max-h-10 grayscale hover:grayscale-0 transition-all"
-                  />
-                )}
+                <Image
+                  src={cliente.logoUrl}
+                  alt={cliente.logoAlt}
+                  width={120}
+                  height={60}
+                  className="object-contain max-h-10 grayscale hover:grayscale-0 transition-all"
+                />
               </motion.div>
             ))}
           </motion.div>
         ) : (
-          /* Placeholder mientras se cargan logos reales en CMS */
+          /* Placeholder mientras no hay logos cargados */
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div
