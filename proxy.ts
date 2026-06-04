@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
  * Seguridad: headers de seguridad + protección básica
  * Redirect: /catalogo/uniformes → /catalogo/uniformes-merchandising (Auditoría Final CORR-04)
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // ── Redirect legacy URL (Auditoría Final CORR-04) ─────────────────────────

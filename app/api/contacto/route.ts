@@ -10,7 +10,8 @@ import { z } from 'zod'
  * Envío via Resend
  */
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Inicialización lazy para evitar error en build sin .env
+const getResend = () => new Resend(process.env.RESEND_API_KEY ?? 'placeholder')
 
 // Schema de validación server-side (idéntico al del cliente)
 const schema = z.object({
@@ -107,7 +108,7 @@ export async function POST(req: NextRequest) {
 
   // Enviar email via Resend
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: process.env.RESEND_FROM_EMAIL ?? 'noreply@segurepp.com',
       to: [process.env.RESEND_TO_EMAIL ?? 'info@segurepp.com'],
       replyTo: email,

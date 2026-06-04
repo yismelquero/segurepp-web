@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // ── Redirects (uniformes → uniformes-merchandising) ───────────────────────
+  // ── Redirects ─────────────────────────────────────────────────────────────
   async redirects() {
     return [
       {
@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
         source: '/catalogo/uniformes/:slug',
         destination: '/catalogo/uniformes-merchandising/:slug',
         permanent: true,
+      },
+      // Studio → Sanity CDN (Turbopack incompatible con Sanity Studio embebido)
+      {
+        source: '/studio',
+        destination: 'https://segurepp.sanity.studio',
+        permanent: false,
       },
     ]
   },

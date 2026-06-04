@@ -60,10 +60,15 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
     PRODUCTOS_POR_LINEA, { linea: lineaEnum }, 3600
   ).catch(() => [])
 
-  const breadcrumb = [
+  const breadcrumbSchema = [
     { name: 'Inicio', url: '/' },
     { name: 'Catálogo', url: '/catalogo' },
     { name: lineaLabel, url: `/catalogo/${linea}` },
+  ]
+  const breadcrumb = [
+    { label: 'Inicio', href: '/' },
+    { label: 'Catálogo', href: '/catalogo' },
+    { label: lineaLabel, href: `/catalogo/${linea}` },
   ]
 
   const tabs = [
@@ -77,7 +82,7 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumb(breadcrumb)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumb(breadcrumbSchema)) }}
       />
 
       <div className="bg-navy py-10 border-b-[3px] border-amber">

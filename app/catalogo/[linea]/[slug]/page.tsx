@@ -73,7 +73,7 @@ export default async function ProductoPage({ params }: { params: Promise<Product
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schemaBreadcrumb(breadcrumbItems)),
+          __html: JSON.stringify(schemaBreadcrumb(breadcrumbSchema)),
         }}
       />
       {/* Product Schema */}
