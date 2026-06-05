@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Hero } from '@/components/home/Hero'
-import { KPIBar } from '@/components/home/KPIBar'
 import { SolutionsGrid } from '@/components/home/SolutionsGrid'
+import { WhySegurepp } from '@/components/home/WhySegurepp'
 import { ClientsSection } from '@/components/home/ClientsSection'
 import { FinalCTA } from '@/components/home/FinalCTA'
 import { getClientesActivos } from '@/data/clientes'
@@ -25,8 +25,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <KPIBar />
       <SolutionsGrid />
+      <WhySegurepp />
       <ClientsSection clientes={clientes} />
       <FinalCTA />
     </>
