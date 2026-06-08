@@ -50,7 +50,7 @@ const HERO_TILES = [
   {
     title: 'Seguridad Industrial',
     subtitle: 'y EPP',
-    src: '/images/hero-industrial.png',
+    src: '/images/hero-industrial.webp',
     className: 'h-[235px] sm:h-[310px] lg:h-[330px]',
     imageClassName: 'object-center',
     icon: (
@@ -60,7 +60,7 @@ const HERO_TILES = [
   {
     title: 'Uniformes y',
     subtitle: 'Merchandising',
-    src: '/images/hero-uniforms.png',
+    src: '/images/hero-uniforms.webp',
     className: 'h-[235px] sm:h-[310px] lg:h-[330px]',
     imageClassName: 'object-center',
     icon: (

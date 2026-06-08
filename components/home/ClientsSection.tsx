@@ -23,7 +23,7 @@ const CLIENT_SECTIONS = [
   {
     label: 'Construcción',
     description: 'Constructoras y contratistas que desarrollan grandes proyectos.',
-    folder: 'ClientsSection%20-%20Construccio%CC%81n',
+    folder: 'ClientsSection%20-%20Construccion',
   },
   {
     label: 'Educación',
