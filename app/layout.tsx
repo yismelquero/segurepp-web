@@ -3,6 +3,7 @@ import './globals.css'
 import { playfair, montserrat } from '@/lib/fonts'
 import { Header } from '@/components/global/Header'
 import { Footer } from '@/components/global/Footer'
+import { WhatsAppFloat } from '@/components/global/WhatsAppFloat'
 import { schemaOrganization } from '@/lib/schema-org'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://segurepp.com'
@@ -58,6 +59,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   )
