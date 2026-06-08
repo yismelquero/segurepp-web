@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       subject: `Nueva consulta: ${safe.lineaNegocio} — ${safe.empresa}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: #071D4F; padding: 24px; border-top: 4px solid #F8AF00;">
+          <div style="background: #004372; padding: 24px; border-top: 4px solid #F8AF00;">
             <h2 style="color: white; margin: 0; font-size: 18px;">Nueva consulta — SEGUREPP</h2>
           </div>
           <div style="padding: 24px; background: #f4f6f9;">
@@ -130,18 +130,18 @@ export async function POST(req: NextRequest) {
                 .map(
                   ([k, v]) => `
                 <tr>
-                  <td style="padding: 8px 12px; font-weight: bold; color: #071D4F; width: 35%; border-bottom: 1px solid #e2e8f0;">${k}</td>
+                  <td style="padding: 8px 12px; font-weight: bold; color: #004372; width: 35%; border-bottom: 1px solid #e2e8f0;">${k}</td>
                   <td style="padding: 8px 12px; color: #64748b; border-bottom: 1px solid #e2e8f0;">${v}</td>
                 </tr>`
                 )
                 .join('')}
             </table>
             <div style="margin-top: 20px; padding: 16px; background: white; border-radius: 6px; border-left: 4px solid #F8AF00;">
-              <p style="font-weight: bold; color: #071D4F; margin: 0 0 8px;">Mensaje:</p>
+              <p style="font-weight: bold; color: #004372; margin: 0 0 8px;">Mensaje:</p>
               <p style="color: #64748b; margin: 0; white-space: pre-wrap;">${safe.mensaje}</p>
             </div>
           </div>
-          <div style="padding: 16px 24px; background: #071D4F; text-align: center;">
+          <div style="padding: 16px 24px; background: #004372; text-align: center;">
             <p style="color: #94a3b8; font-size: 12px; margin: 0;">
               SEGUREPP · info@segurepp.com · (+591) 78407223
             </p>

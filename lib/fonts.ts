@@ -1,15 +1,15 @@
-import { Playfair_Display, Montserrat } from 'next/font/google'
+import localFont from 'next/font/local'
 
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['700'],
+export const playfair = localFont({
+  src: '../public/fonts/PlayfairDisplay-Bold.ttf',
+  weight: '700',
   display: 'swap',
   variable: '--font-playfair-display',
 })
 
-export const montserrat = Montserrat({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600', '700'],
+export const montserrat = localFont({
+  src: '../public/fonts/Montserrat-VariableFont_wght.ttf',
+  weight: '400 700',
   display: 'swap',
   variable: '--font-montserrat',
 })

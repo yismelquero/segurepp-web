@@ -3,8 +3,8 @@
 /* ─── DESIGN TOKENS — SEGUREPP ─────────────────────────────────────────────── */
 @theme inline {
   /* Paleta oficial aprobada (Auditoría Final) */
-  --color-navy:       #071D4F;
-  --color-navy-dark:  #040F2E;
+  --color-navy:       #004372;
+  --color-navy-dark:  #001B3F;
   --color-amber:      #F8AF00;
   --color-gold:       #FFCA36;
   --color-blue:       #1A6FBF;
@@ -18,7 +18,7 @@
   --color-gray-2:     #E2E8F0;
   --color-gray-3:     #94A3B8;
   --color-gray-4:     #64748B;
-  --color-dark:       #040F2E;
+  --color-dark:       #001B3F;
 
   /* Tipografías */
   --font-playfair:    var(--font-playfair-display);
@@ -27,7 +27,7 @@
 
   /* Sombras personalizadas */
   --shadow-amber:     0 4px 20px rgba(248,175,0,0.25);
-  --shadow-navy:      0 4px 20px rgba(7,29,79,0.30);
+  --shadow-navy:      0 4px 20px rgba(0,67,114,0.30);
 }
 
 /* ─── RESET BASE ────────────────────────────────────────────────────────────── */
@@ -39,7 +39,7 @@ html {
 
 body {
   background: #ffffff;
-  color: #071D4F;
+  color: #004372;
   font-family: var(--font-montserrat), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,4 +84,3 @@ a, button, [role="button"] {
   outline: 2px solid #F8AF00;
   outline-offset: 2px;
 }
-

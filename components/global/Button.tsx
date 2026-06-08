@@ -31,7 +31,7 @@ const variantClasses: Record<ButtonVariant, string> = {
 
   secondary: [
     'bg-navy text-white font-bold',
-    'hover:bg-[#0D2563] hover:-translate-y-0.5',
+    'hover:bg-navy-dark hover:-translate-y-0.5',
     'active:bg-dark active:translate-y-0',
     'disabled:opacity-40 disabled:cursor-not-allowed',
     'focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2',
@@ -60,8 +60,8 @@ const variantClasses: Record<ButtonVariant, string> = {
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  md: 'px-7 py-3.5 text-[15px] leading-none min-h-[44px] min-w-[120px]',
-  sm: 'px-5 py-2.5 text-[13px] leading-none min-h-[36px] min-w-[100px]',
+  md: 'px-7 py-3.5 text-[15px] leading-none min-h-[48px] min-w-[132px]',
+  sm: 'px-5 py-2.5 text-[13px] leading-none min-h-[40px] min-w-[108px]',
 }
 
 const base = 'inline-flex items-center justify-center gap-2 rounded-md transition-all duration-180 ease-in-out select-none'

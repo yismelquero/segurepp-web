@@ -14,7 +14,7 @@ interface ProductCardProps {
  */
 export function ProductCard({ producto }: ProductCardProps) {
   const lineaSlug = LINEA_SLUGS[producto.lineaNegocio] ?? 'equipos-medicos'
-  const accentColor = LINEA_COLORS[producto.lineaNegocio] ?? '#071D4F'
+  const accentColor = LINEA_COLORS[producto.lineaNegocio] ?? '#004372'
   const href = `/catalogo/${lineaSlug}/${producto.slug}`
   const imgSrc = producto.imagenes?.[0] ?? null
 

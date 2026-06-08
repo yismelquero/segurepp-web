@@ -77,7 +77,7 @@ const nextConfig: NextConfig = {
 
   // ── Turbopack: silenciar advertencia de workspace root ────────────────────
   turbopack: {
-    root: __dirname,
+    root: process.cwd(),
   },
 
   // ── Compilación ───────────────────────────────────────────────────────────

@@ -14,7 +14,7 @@ export default async function OGImage() {
           height: 630,
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#071D4F',
+          backgroundColor: '#004372',
           fontFamily: 'sans-serif',
           position: 'relative',
           overflow: 'hidden',
@@ -65,7 +65,7 @@ export default async function OGImage() {
                 justifyContent: 'center',
               }}
             >
-              <span style={{ color: '#071D4F', fontWeight: 700, fontSize: 24, lineHeight: 1 }}>
+              <span style={{ color: '#004372', fontWeight: 700, fontSize: 24, lineHeight: 1 }}>
                 S
               </span>
             </div>
@@ -108,7 +108,7 @@ export default async function OGImage() {
               {[
                 { label: 'Equipos Médicos', color: '#0E7490' },
                 { label: 'Seguridad Industrial', color: '#1A6FBF' },
-                { label: 'Uniformes', color: '#F8AF00', textColor: '#071D4F' },
+                { label: 'Uniformes', color: '#F8AF00', textColor: '#004372' },
               ].map(({ label, color, textColor }) => (
                 <div
                   key={label}

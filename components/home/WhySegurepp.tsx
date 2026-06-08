@@ -2,193 +2,146 @@
 
 import { motion } from 'framer-motion'
 import { staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
-import { useRef, useState, useEffect } from 'react'
-import { useKPICounter } from '@/hooks/useKPICounter'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
-
-/**
- * Sección 3 — ¿Por qué elegir SEGUREPP?
- * 6 diferenciadores + contador animado de clientes.
- * Reemplaza KPIBar horizontal con sección de mayor jerarquía visual.
- */
 
 const DIFERENCIADORES = [
   {
-    id: 'importacion',
-    titulo: 'Importación directa',
-    descripcion: 'Sin intermediarios. Trabajamos directamente con fabricantes para garantizar calidad y precio competitivo.',
+    id: 'calidad',
+    titulo: 'Calidad garantizada',
+    descripcion: 'Trabajamos con marcas líderes y productos que cumplen estándares profesionales.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <path d="M12 3l2.2 4.4 4.8.7-3.5 3.4.8 4.8L12 14.8 7.7 17.3l.8-4.8L5 9.1l4.8-.7L12 3z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
-    id: 'atencion',
-    titulo: 'Atención personalizada',
-    descripcion: 'Cada cliente recibe asesoría técnica dedicada. Entendemos las necesidades específicas de su empresa.',
+    id: 'asesoria',
+    titulo: 'Asesoría especializada',
+    descripcion: 'Nuestro equipo acompaña cada paso para encontrar la solución ideal para tu empresa.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'cobertura',
-    titulo: 'Cobertura nacional',
-    descripcion: 'Atendemos empresas en La Paz, Santa Cruz, Cochabamba y todo Bolivia. Presencia nacional real.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M12 3a9 9 0 010 18M3 12h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
+      <path d="M6 12v-2a6 6 0 0112 0v2M6 12h2v5H6a2 2 0 01-2-2v-1a2 2 0 012-2zM18 12h-2v5h2a2 2 0 002-2v-1a2 2 0 00-2-2zM13 19h2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
     id: 'entrega',
-    titulo: 'Entrega garantizada',
-    descripcion: 'Cumplimos los plazos acordados. Seguimiento de pedidos y comunicación proactiva en cada etapa.',
+    titulo: 'Entrega confiable',
+    descripcion: 'Logística eficiente y cobertura nacional para recibir tus productos donde los necesites.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <path d="M4 7h10v10H4V7zM14 11h3l3 3v3h-6v-6zM7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4zM2 10h4M2 14h4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
-    id: 'fundacion',
-    titulo: 'Fundada en 2019',
-    descripcion: 'Empresa boliviana con trayectoria comprobada. Años de experiencia proveyendo a empresas e instituciones.',
+    id: 'respaldo',
+    titulo: 'Respaldo y confianza',
+    descripcion: 'Más de cinco años siendo aliados estratégicos de empresas e instituciones.',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="9" width="18" height="13" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M8 9V5a4 4 0 018 0v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
+      <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4zM9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+  {
+    id: 'medida',
+    titulo: 'Soluciones a tu medida',
+    descripcion: 'Adaptamos cada propuesta a necesidades reales, con opciones personalizadas y escalables.',
+    icon: (
+      <path d="M12 15a3 3 0 100-6 3 3 0 000 6zM19 12a7 7 0 01-.1 1l2 1.5-2 3.4-2.4-1a7 7 0 01-1.7 1L14.5 21h-4l-.4-3.1a7 7 0 01-1.7-1l-2.4 1-2-3.4L6.1 13A7 7 0 016 12c0-.3 0-.7.1-1L4 9.5l2-3.4 2.4 1a7 7 0 011.7-1L10.5 3h4l.4 3.1a7 7 0 011.7 1l2.4-1 2 3.4-2.1 1.5c.1.3.1.7.1 1z" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+  {
+    id: 'compromiso',
+    titulo: 'Compromiso que se nota',
+    descripcion: 'Construimos relaciones duraderas basadas en honestidad, cumplimiento y resultados.',
+    icon: (
+      <path d="M8 12l3 3 6-6M4 13l4-4 4 4M12 13l4-4 4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
 ]
 
-function ClientCounter() {
-  const reducedMotion = useReducedMotion()
-  const ref = useRef<HTMLDivElement>(null)
-  const [triggered, setTriggered] = useState(false)
-  const count = useKPICounter(200, 1400, triggered)
-
-  useEffect(() => {
-    if (reducedMotion) { setTriggered(true); return }
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setTriggered(true); observer.disconnect() } },
-      { threshold: 0.4 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [reducedMotion])
-
-  return (
-    <div ref={ref} className="flex flex-col items-start">
-      <span
-        className="text-amber font-bold text-[44px] lg:text-[56px] leading-none"
-        style={{ fontFamily: 'var(--font-montserrat)' }}
-        aria-label="Más de 200 clientes atendidos"
-      >
-        +{triggered ? count : '0'}
-      </span>
-      <span
-        className="text-navy font-bold text-[13px] mt-1"
-        style={{ fontFamily: 'var(--font-montserrat)' }}
-      >
-        clientes atendidos
-      </span>
-      <span
-        className="text-gray-3 text-[11px] mt-0.5"
-        style={{ fontFamily: 'var(--font-montserrat)' }}
-      >
-        Empresas e instituciones
-      </span>
-    </div>
-  )
-}
-
 export function WhySegurepp() {
   return (
-    <section aria-label="Por qué elegir SEGUREPP" className="py-16 lg:py-24 bg-gray-1">
+    <section aria-label="Por qué elegir SEGUREPP" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-
-        {/* Header */}
         <motion.div
-          className="mb-12 lg:mb-16"
+          className="mx-auto mb-12 max-w-5xl text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOptions}
           transition={{ duration: 0.4 }}
         >
-          <p
-            className="text-amber font-bold text-[10px] tracking-[0.18em] uppercase mb-3"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            Nuestra propuesta de valor
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.28em] text-blue">
+            ¿Por qué SEGUREPP?
           </p>
-          <h2
-            className="text-navy font-bold text-2xl lg:text-[36px] leading-tight"
-            style={{ fontFamily: 'var(--font-playfair)' }}
-          >
-            ¿Por qué elegir SEGUREPP?
+          <div className="mx-auto mb-5 h-[3px] w-20 bg-amber" aria-hidden="true" />
+          <h2 className="text-[34px] font-bold leading-tight text-navy sm:text-[44px] lg:text-[54px]">
+            Más que productos, soluciones que{' '}
+            <span className="text-blue">protegen y hacen crecer</span> tu empresa
           </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-[17px] leading-relaxed text-gray-4">
+            Un solo proveedor, múltiples soluciones. Calidad, respaldo y experiencia
+            para acompañar cada desafío de tu empresa.
+          </p>
         </motion.div>
 
-        {/* Layout: contador izquierda + grid de 5 diferenciadores derecha */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-
-          {/* Contador destacado */}
-          <motion.div
-            className="flex-shrink-0 lg:w-48 flex flex-col items-start justify-center bg-white rounded-xl p-8 border border-gray-2 shadow-sm"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOptions}
-            transition={{ duration: 0.4, delay: 0.1 }}
-          >
-            <ClientCounter />
-          </motion.div>
-
-          {/* 5 diferenciadores */}
-          <motion.div
-            className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-          >
-            {DIFERENCIADORES.map((d) => (
-              <motion.div
-                key={d.id}
-                variants={staggerItem}
-                className="bg-white rounded-xl p-5 border border-gray-2 shadow-sm flex gap-4"
-              >
-                <div
-                  className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-amber"
-                  style={{ backgroundColor: '#F8AF0014' }}
-                >
+        <motion.div
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+        >
+          {DIFERENCIADORES.map((d) => (
+            <motion.article
+              key={d.id}
+              variants={staggerItem}
+              className="flex min-h-[300px] flex-col items-center rounded-lg border border-gray-2 bg-white px-5 py-8 text-center shadow-[0_16px_35px_rgba(0,67,114,0.08)]"
+            >
+              <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-ice text-navy">
+                <svg width="54" height="54" viewBox="0 0 24 24" fill="none">
                   {d.icon}
-                </div>
-                <div>
-                  <h3
-                    className="text-navy font-bold text-[13px] mb-1 leading-tight"
-                    style={{ fontFamily: 'var(--font-montserrat)' }}
-                  >
-                    {d.titulo}
-                  </h3>
-                  <p
-                    className="text-gray-4 text-[12px] leading-relaxed"
-                    style={{ fontFamily: 'var(--font-montserrat)' }}
-                  >
-                    {d.descripcion}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+                </svg>
+              </div>
+              <div className="mb-5 h-[2px] w-10 bg-amber" aria-hidden="true" />
+              <h3 className="mb-4 text-[19px] font-bold leading-tight text-navy">
+                {d.titulo}
+              </h3>
+              <p className="text-[13px] leading-relaxed text-gray-4">
+                {d.descripcion}
+              </p>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-10 overflow-hidden rounded-lg bg-navy shadow-navy lg:mt-12"
+          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+        >
+          <div className="grid grid-cols-1 items-center gap-8 p-8 lg:grid-cols-[1fr_0.8fr] lg:p-10">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+              <div className="flex h-28 w-28 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-white">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 11a4 4 0 118 0M3 21c0-4 4-7 9-7s9 3 9 7M5 12a3 3 0 100-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M12 20l-2-2.2a2.2 2.2 0 113.2-3l.8.8.8-.8a2.2 2.2 0 113.2 3L16 20" stroke="#F8AF00" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className="border-l-0 border-amber pl-0 sm:border-l sm:pl-8">
+                <h3 className="max-w-3xl text-[25px] font-bold leading-tight text-white lg:text-[30px]">
+                  Orgullosamente <span className="text-amber">bolivianos</span>,
+                  comprometidos con el desarrollo de empresas e instituciones en todo el país.
+                </h3>
+                <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-white/82">
+                  Entendemos tu realidad, hablamos tu idioma y estamos cerca para
+                  brindarte soluciones efectivas.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg bg-white px-7 py-6 text-navy">
+              <p className="text-[18px] font-bold leading-relaxed">
+                Atendemos organizaciones de salud, industria, construcción,
+                educación y sector público <span className="text-blue">en todo Bolivia.</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

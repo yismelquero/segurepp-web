@@ -10,6 +10,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -60,27 +61,27 @@ export function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-[100] bg-white transition-shadow duration-200',
-          scrolled && 'bg-white/95 backdrop-blur-sm shadow-lg'
+          'fixed top-0 left-0 right-0 z-[100] bg-navy transition-shadow duration-200',
+          scrolled && 'bg-navy/95 backdrop-blur-sm shadow-lg'
         )}
-        style={{ height: '48px' }}
+        style={{ height: '72px' }}
       >
         <div className="mx-auto max-w-[1440px] h-full flex items-center justify-between px-4 sm:px-6 lg:px-10">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
             aria-label="SEGUREPP — Ir al inicio"
           >
-            {/* Isotipo placeholder — sustituir por SVG real en producción */}
-            <div className="w-7 h-7 bg-navy rounded-sm flex items-center justify-center">
-              <span className="text-amber font-bold text-xs leading-none">S</span>
-            </div>
-            <span
-              className="font-bold text-[13px] text-navy tracking-wide"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              SEGUREPP
+            <span className="flex h-12 w-[190px] items-center overflow-hidden" aria-hidden="true">
+              <Image
+                src="/images/logo-segurepp-horizontal-negativo.svg"
+                alt=""
+                width={190}
+                height={52}
+                className="h-12 w-auto"
+                priority
+              />
             </span>
           </Link>
 
@@ -94,10 +95,10 @@ export function Header() {
                 key={href}
                 href={href}
                 className={cn(
-                  'text-[15px] font-medium text-navy transition-colors duration-120',
-                  'hover:text-blue relative',
+                  'text-[15px] font-medium text-white transition-colors duration-120',
+                  'hover:text-amber relative',
                   isActive(href) &&
-                    'text-navy after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-amber after:rounded-full'
+                    'text-amber after:absolute after:bottom-[-10px] after:left-0 after:right-0 after:h-[3px] after:bg-amber after:rounded-full'
                 )}
                 style={{ fontFamily: 'var(--font-montserrat)' }}
                 aria-current={isActive(href) ? 'page' : undefined}
@@ -113,29 +114,29 @@ export function Header() {
               href="/contacto"
               variant="primary"
               size="sm"
-              className="hidden lg:inline-flex text-[15px]"
+              className="hidden lg:inline-flex text-[15px] min-w-[220px]"
             >
-              Cotizar ahora
+              Solicitar cotización <span aria-hidden="true">→</span>
             </Button>
 
             {/* Hamburger mobile */}
             <button
               onClick={() => setDrawerOpen(true)}
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded hover:bg-gray-1 transition-colors"
+              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded hover:bg-white/10 transition-colors"
               aria-label="Abrir menú"
               aria-expanded={drawerOpen}
               aria-controls="mobile-drawer"
             >
-              <span className="w-6 h-[1.5px] bg-navy" />
-              <span className="w-6 h-[1.5px] bg-navy" />
-              <span className="w-6 h-[1.5px] bg-navy" />
+              <span className="w-6 h-[1.5px] bg-white" />
+              <span className="w-6 h-[1.5px] bg-white" />
+              <span className="w-6 h-[1.5px] bg-white" />
             </button>
           </div>
         </div>
       </header>
 
       {/* Espaciador del header fijo */}
-      <div style={{ height: '48px' }} />
+      <div style={{ height: '72px' }} />
 
       {/* ── DRAWER MOBILE ─────────────────────────────────────────── */}
       <AnimatePresence>
@@ -182,7 +183,7 @@ export function Header() {
                   aria-label="Cerrar menú"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M2 2l12 12M14 2L2 14" stroke="#071D4F" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M2 2l12 12M14 2L2 14" stroke="#004372" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 </button>
               </div>

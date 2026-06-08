@@ -9,70 +9,64 @@ interface ClientsSectionProps {
   clientes: Cliente[]
 }
 
-const SECTORES = [
-  { label: 'Todos' },
-  { label: 'Salud' },
-  { label: 'Minería' },
-  { label: 'Industria' },
-  { label: 'Educación' },
-  { label: 'Sector público' },
-  { label: 'Construcción' },
+const CLIENT_SECTIONS = [
+  {
+    label: 'Salud',
+    description: 'Clínicas, hospitales y centros médicos que cuidan vidas.',
+    folder: 'ClientsSection%20-%20Salud',
+  },
+  {
+    label: 'Industria',
+    description: 'Empresas industriales, manufactureras y de producción.',
+    folder: 'ClientsSection%20-%20Industria',
+  },
+  {
+    label: 'Construcción',
+    description: 'Constructoras y contratistas que desarrollan grandes proyectos.',
+    folder: 'ClientsSection%20-%20Construccio%CC%81n',
+  },
+  {
+    label: 'Educación',
+    description: 'Universidades e institutos comprometidos con el futuro.',
+    folder: 'ClientsSection%20-%20Colegios',
+  },
+  {
+    label: 'Gobierno',
+    description: 'Entidades públicas que trabajan por el desarrollo del país.',
+    folder: 'ClientsSection%20-%20Gobierno',
+  },
 ]
 
-/**
- * "Empresas que confían en SEGUREPP"
- * Auditoría Final: SOLO clientes, no partners ni distribuidores.
- */
+const LOGOS_PER_SECTION = 5
+
 export function ClientsSection({ clientes }: ClientsSectionProps) {
   return (
-    <section aria-label="Empresas que confían en SEGUREPP" className="py-16 lg:py-20 bg-white">
+    <section aria-label="Empresas que confían en SEGUREPP" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-
-        {/* Header */}
         <motion.div
-          className="mb-8"
+          className="mx-auto mb-10 max-w-5xl text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOptions}
           transition={{ duration: 0.4 }}
         >
-          <p
-            className="text-amber font-bold text-[10px] tracking-[0.12em] uppercase mb-2"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            Confianza empresarial
-          </p>
-          <h2
-            className="text-navy font-bold text-2xl lg:text-3xl"
-            style={{ fontFamily: 'var(--font-playfair)' }}
-          >
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.24em] text-blue">
             Empresas que confían en SEGUREPP
+          </p>
+          <div className="mx-auto mb-5 h-[3px] w-20 bg-amber" aria-hidden="true" />
+          <h2 className="text-[34px] font-bold leading-tight text-navy sm:text-[44px] lg:text-[54px]">
+            Más de 200 empresas e instituciones confían en{' '}
+            <span className="text-blue">nuestras soluciones.</span>
           </h2>
-          <p
-            className="text-gray-4 text-[14px] mt-2"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            Más de 200 empresas e instituciones en Bolivia confían en nuestras soluciones.
+          <p className="mx-auto mt-5 max-w-3xl text-[17px] leading-relaxed text-gray-4">
+            Acompañamos a organizaciones líderes en diversos sectores, brindando
+            productos de calidad y un servicio confiable.
           </p>
         </motion.div>
 
-        {/* Chips de sector */}
-        <div className="flex gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
-          {SECTORES.map(({ label }) => (
-            <span
-              key={label}
-              className="flex-none px-3 py-1.5 rounded-full text-[11px] font-medium text-navy bg-gray-1 border border-gray-2 whitespace-nowrap cursor-default"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-
-        {/* Grid de logos */}
         {clientes.length > 0 ? (
           <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -82,34 +76,77 @@ export function ClientsSection({ clientes }: ClientsSectionProps) {
               <motion.div
                 key={cliente.id}
                 variants={staggerItem}
-                className="bg-white border border-gray-2 rounded-md p-4 flex items-center justify-center h-20 hover:shadow-md hover:border-gray-3 transition-all duration-180"
+                className="flex h-24 items-center justify-center rounded-lg border border-gray-2 bg-white p-4 shadow-sm"
               >
                 <Image
                   src={cliente.logoUrl}
                   alt={cliente.logoAlt}
                   width={120}
                   height={60}
-                  className="object-contain max-h-10 grayscale hover:grayscale-0 transition-all"
+                  className="max-h-10 object-contain grayscale transition-all hover:grayscale-0"
                 />
               </motion.div>
             ))}
           </motion.div>
         ) : (
-          /* Placeholder mientras no hay logos cargados */
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div
-                key={i}
-                className="bg-gray-1 border border-gray-2 rounded-md h-20 flex items-center justify-center"
-                aria-hidden="true"
+          <motion.div
+            className="space-y-4"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+          >
+            {CLIENT_SECTIONS.map((sector) => (
+              <motion.div
+                key={sector.label}
+                variants={staggerItem}
+                className="grid grid-cols-1 items-center gap-5 rounded-lg border border-gray-2 bg-white p-5 shadow-[0_12px_30px_rgba(0,67,114,0.07)] lg:grid-cols-[280px_1fr]"
               >
-                <span className="text-gray-3 text-[9px] font-medium" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                  Cliente {i + 1}
-                </span>
-              </div>
+                <div className="flex items-center gap-5 border-gray-2 lg:border-r lg:pr-6">
+                  <span className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-ice text-blue" aria-hidden="true">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 20V8l8-4 8 4v12M8 20v-7h8v7M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h3 className="text-[19px] font-bold uppercase text-blue">{sector.label}</h3>
+                    <div className="my-2 h-[2px] w-8 bg-amber" aria-hidden="true" />
+                    <p className="text-[12px] leading-relaxed text-gray-4">{sector.description}</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+                  {Array.from({ length: LOGOS_PER_SECTION }).map((_, index) => (
+                    <div
+                      key={`${sector.label}-${index}`}
+                      className="flex h-20 items-center justify-center rounded-md border border-gray-2 bg-white p-3 shadow-sm"
+                    >
+                      <Image
+                        src={`/images/${sector.folder}/${index + 1}.png`}
+                        alt={`Logo cliente ${sector.label.toLowerCase()} ${index + 1}`}
+                        width={120}
+                        height={120}
+                        className="h-full w-full object-contain grayscale transition-all hover:grayscale-0"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
+
+        <div className="mt-5 grid grid-cols-1 items-center gap-4 rounded-lg bg-ice px-6 py-5 text-navy lg:grid-cols-[auto_1fr_auto] lg:px-10">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9M12 3c-2.5 2.6-4 5.7-4 9s1.5 6.4 4 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </span>
+          <p className="text-[18px] font-semibold leading-relaxed">
+            Atendemos organizaciones de salud, industria, construcción, educación
+            y sector público <span className="text-blue">en todo Bolivia.</span>
+          </p>
+          <span className="hidden h-14 w-px bg-gray-2 lg:block" aria-hidden="true" />
+        </div>
       </div>
     </section>
   )

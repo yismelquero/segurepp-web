@@ -13,15 +13,13 @@ import { useReducedMotion } from './useReducedMotion'
  * @param trigger  Si true, inicia la animación
  */
 export function useKPICounter(target: number, duration = 1200, trigger = false) {
-  const [count, setCount] = useState(0)
   const reducedMotion = useReducedMotion()
+  const [count, setCount] = useState(() => (trigger && reducedMotion ? target : 0))
   const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (!trigger) return
     if (reducedMotion) {
-      // prefers-reduced-motion: mostrar valor final directamente
-      setCount(target)
       return
     }
 
@@ -49,5 +47,5 @@ export function useKPICounter(target: number, duration = 1200, trigger = false) 
     }
   }, [trigger, target, duration, reducedMotion])
 
-  return count
+  return trigger && reducedMotion ? target : count
 }

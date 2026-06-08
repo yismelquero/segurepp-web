@@ -27,11 +27,12 @@ const STATIC_KPIS = [
 function AnimatedCounter() {
   const reducedMotion = useReducedMotion()
   const ref = useRef<HTMLDivElement>(null)
-  const [triggered, setTriggered] = useState(false)
-  const count = useKPICounter(200, 1200, triggered)
+  const [triggered, setTriggered] = useState(() => reducedMotion)
+  const effectiveTriggered = triggered || reducedMotion
+  const count = useKPICounter(200, 1200, effectiveTriggered)
 
   useEffect(() => {
-    if (reducedMotion) { setTriggered(true); return }
+    if (reducedMotion) return
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setTriggered(true); observer.disconnect() } },
       { threshold: 0.3 }
@@ -47,7 +48,7 @@ function AnimatedCounter() {
         style={{ fontFamily: 'var(--font-montserrat)' }}
         aria-label="Más de 200 clientes atendidos"
       >
-        {triggered ? `+${count}` : '+0'}
+        {effectiveTriggered ? `+${count}` : '+0'}
       </span>
       <span
         className="text-navy text-[10px] font-semibold mt-1"

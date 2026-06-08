@@ -47,5 +47,5 @@ export const SLUG_TO_LINEA: Record<string, string> = {
 export const LINEA_COLORS: Record<string, string> = {
   medico: '#0E7490',      // teal — solo para Equipos Médicos
   industrial: '#1A6FBF',  // electric blue
-  uniformes: '#071D4F',   // navy
+  uniformes: '#004372',   // official navy
 }

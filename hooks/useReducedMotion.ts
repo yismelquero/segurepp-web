@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 /**
  * Detecta prefers-reduced-motion.
@@ -8,15 +8,14 @@ import { useEffect, useState } from 'react'
  * Si retorna true → no animar.
  */
 export function useReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setReduced(mq.matches)
-    const handler = (e: MediaQueryListEvent) => setReduced(e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
-
-  return reduced
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+      const handler = () => onStoreChange()
+      mq.addEventListener('change', handler)
+      return () => mq.removeEventListener('change', handler)
+    },
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    () => false
+  )
 }
