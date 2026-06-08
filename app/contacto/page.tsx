@@ -67,9 +67,8 @@ export default function ContactoPage() {
             {[
               { label: 'Email', value: 'info@segurepp.com', href: 'mailto:info@segurepp.com' },
               { label: 'WhatsApp', value: '(+591) 78407223', href: 'https://wa.me/59178407223' },
-              { label: 'Dirección', value: 'Calle Cañada Strongest 1842\nTorre Centrum, Piso 3, Of.301', href: null },
-              { label: 'Ciudad', value: 'La Paz, Bolivia', href: null },
-              { label: 'Horario', value: 'Lunes a Viernes\n08:00 – 18:00 (BOT)', href: null },
+              { label: 'Dirección', value: 'Calle Cañada Strongest Nro 1842\nTorre Centrum, Piso 3\nOficina Nro 301\nLa Paz-Bolivia', href: null },
+              { label: 'Horario', value: 'Lunes a Viernes\n9:00 – 17:00 horas', href: null },
             ].map(({ label, value, href }) => (
               <div key={label} className="mb-5">
                 <p

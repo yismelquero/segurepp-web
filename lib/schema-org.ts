@@ -27,7 +27,7 @@ export const schemaOrganization = {
       foundingDate: '2019',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Calle Cañada Strongest 1842, Torre Centrum, Piso 3, Oficina 301',
+        streetAddress: 'Calle Cañada Strongest Nro 1842, Torre Centrum, Piso 3, Oficina Nro 301',
         addressLocality: 'La Paz',
         addressRegion: 'La Paz',
         addressCountry: 'BO',
@@ -42,8 +42,8 @@ export const schemaOrganization = {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '08:00',
-          closes: '18:00',
+          opens: '09:00',
+          closes: '17:00',
         },
       ],
       areaServed: {

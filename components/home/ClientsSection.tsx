@@ -76,14 +76,14 @@ export function ClientsSection({ clientes }: ClientsSectionProps) {
               <motion.div
                 key={cliente.id}
                 variants={staggerItem}
-                className="flex h-24 items-center justify-center rounded-lg border border-gray-2 bg-white p-4 shadow-sm"
+                className="flex h-32 items-center justify-center rounded-lg border border-gray-2 bg-white p-3 shadow-sm"
               >
                 <Image
                   src={cliente.logoUrl}
                   alt={cliente.logoAlt}
-                  width={120}
-                  height={60}
-                  className="max-h-10 object-contain grayscale transition-all hover:grayscale-0"
+                  width={220}
+                  height={120}
+                  className="max-h-24 object-contain grayscale transition-all hover:grayscale-0"
                 />
               </motion.div>
             ))}
@@ -118,13 +118,13 @@ export function ClientsSection({ clientes }: ClientsSectionProps) {
                   {Array.from({ length: LOGOS_PER_SECTION }).map((_, index) => (
                     <div
                       key={`${sector.label}-${index}`}
-                      className="flex h-20 items-center justify-center rounded-md border border-gray-2 bg-white p-3 shadow-sm"
+                      className="flex h-32 items-center justify-center rounded-md border border-gray-2 bg-white p-2 shadow-sm sm:h-36"
                     >
                       <Image
                         src={`/images/${sector.folder}/${index + 1}.png`}
                         alt={`Logo cliente ${sector.label.toLowerCase()} ${index + 1}`}
-                        width={120}
-                        height={120}
+                        width={240}
+                        height={240}
                         className="h-full w-full object-contain grayscale transition-all hover:grayscale-0"
                       />
                     </div>

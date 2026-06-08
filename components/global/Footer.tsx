@@ -12,8 +12,8 @@ const FOOTER_LINKS = [
 const CONTACT_ITEMS = [
   { label: 'Teléfono', value: '+591 78407223' },
   { label: 'Email', value: 'info@segurepp.com' },
-  { label: 'Dirección', value: 'La Paz, Bolivia' },
-  { label: 'Horario', value: 'Lun - Vie: 08:00 - 18:00' },
+  { label: 'Dirección', value: 'Calle Cañada Strongest Nro 1842, Torre Centrum, Piso 3, Oficina Nro 301. La Paz-Bolivia.' },
+  { label: 'Horario', value: 'Lun - Vie: 9:00 - 17:00 horas' },
 ]
 
 const SOCIAL_LINKS = [

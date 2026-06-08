@@ -132,7 +132,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               Equipos médicos e insumos, seguridad industrial y EPP, uniformes y
-              merchandising para empresas e instituciones en Bolivia.
+              merchandising para empresas e instituciones.
             </motion.p>
 
             <motion.div

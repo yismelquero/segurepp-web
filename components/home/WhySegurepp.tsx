@@ -109,38 +109,17 @@ export function WhySegurepp() {
         </motion.div>
 
         <motion.div
-          className="mt-10 overflow-hidden rounded-lg bg-navy shadow-navy lg:mt-12"
+          className="mt-10 rounded-lg bg-navy p-8 shadow-navy lg:mt-12 lg:p-12"
           variants={staggerItem}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
         >
-          <div className="grid grid-cols-1 items-center gap-8 p-8 lg:grid-cols-[1fr_0.8fr] lg:p-10">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-              <div className="flex h-28 w-28 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-white">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 11a4 4 0 118 0M3 21c0-4 4-7 9-7s9 3 9 7M5 12a3 3 0 100-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  <path d="M12 20l-2-2.2a2.2 2.2 0 113.2-3l.8.8.8-.8a2.2 2.2 0 113.2 3L16 20" stroke="#F8AF00" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <div className="border-l-0 border-amber pl-0 sm:border-l sm:pl-8">
-                <h3 className="max-w-3xl text-[25px] font-bold leading-tight text-white lg:text-[30px]">
-                  Orgullosamente <span className="text-amber">bolivianos</span>,
-                  comprometidos con el desarrollo de empresas e instituciones en todo el país.
-                </h3>
-                <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-white/82">
-                  Entendemos tu realidad, hablamos tu idioma y estamos cerca para
-                  brindarte soluciones efectivas.
-                </p>
-              </div>
-            </div>
-            <div className="rounded-lg bg-white px-7 py-6 text-navy">
-              <p className="text-[18px] font-bold leading-relaxed">
-                Atendemos organizaciones de salud, industria, construcción,
-                educación y sector público <span className="text-blue">en todo Bolivia.</span>
-              </p>
-            </div>
-          </div>
+          <p className="mx-auto max-w-6xl text-center text-[25px] font-bold leading-tight text-white sm:text-[32px] lg:text-[42px]">
+            En <span className="text-amber">SEGUREPP</span>, cada solución está
+            respaldada por un equipo que entiende tu negocio y se compromete con{' '}
+            <span className="text-amber">tu crecimiento</span>.
+          </p>
         </motion.div>
       </div>
     </section>
