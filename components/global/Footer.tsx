@@ -16,6 +16,13 @@ const CONTACT_ITEMS = [
   { label: 'Horario', value: 'Lun - Vie: 08:00 - 18:00' },
 ]
 
+const SOCIAL_LINKS = [
+  { label: 'LinkedIn', shortLabel: 'in', href: 'https://www.linkedin.com/company/segureppbo' },
+  { label: 'Facebook', shortLabel: 'f', href: 'https://www.facebook.com/segurepp' },
+  { label: 'Instagram', shortLabel: 'ig', href: 'https://www.instagram.com/segurepp' },
+  { label: 'TikTok', shortLabel: 'tt', href: 'https://www.tiktok.com/@segurepp' },
+]
+
 export function Footer() {
   const year = new Date().getFullYear()
 
@@ -39,14 +46,17 @@ export function Footer() {
               instituciones en todo Bolivia.
             </p>
             <div className="mt-9 flex gap-4">
-              {['in', 'f', 'ig', 'wa'].map((item) => (
-                <span
-                  key={item}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 text-[16px] font-bold text-white"
-                  aria-hidden="true"
+              {SOCIAL_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 text-[16px] font-bold text-white transition-colors hover:border-amber hover:text-amber"
                 >
-                  {item}
-                </span>
+                  {item.shortLabel}
+                </Link>
               ))}
             </div>
           </div>
