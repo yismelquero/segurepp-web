@@ -40,6 +40,7 @@ export interface Producto {
   descripcionCorta: string
   descripcionLarga?: string        // texto plano o HTML mínimo
   especificaciones?: Especificacion[]
+  etiquetas?: string[]
   fichaTecnicaUrl?: string         // URL pública del PDF
   imagenes: string[]               // URLs públicas
   imagenesAlt: string[]

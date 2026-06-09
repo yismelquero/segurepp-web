@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { ProductoCard } from '@/types'
 import { LINEA_SLUGS, LINEA_COLORS } from '@/lib/utils'
+import { siteConfig } from '@/data/site'
 
 interface ProductCardProps {
   producto: ProductoCard
@@ -17,6 +18,9 @@ export function ProductCard({ producto }: ProductCardProps) {
   const accentColor = LINEA_COLORS[producto.lineaNegocio] ?? '#004372'
   const href = `/catalogo/${lineaSlug}/${producto.slug}`
   const imgSrc = producto.imagenes?.[0] ?? null
+  const priceMessage = encodeURIComponent(
+    `Hola, quiero consultar el precio del producto: ${producto.nombre}.`
+  )
 
   return (
     <article
@@ -92,13 +96,15 @@ export function ProductCard({ producto }: ProductCardProps) {
           >
             Ver ficha
           </Link>
-          <Link
-            href={`/contacto?producto=${encodeURIComponent(producto.nombre)}`}
+          <a
+            href={`https://wa.me/${siteConfig.whatsapp}?text=${priceMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1 text-center py-2 text-[12px] font-bold bg-amber text-navy rounded hover:bg-gold transition-colors min-h-[40px] flex items-center justify-center"
             style={{ fontFamily: 'var(--font-montserrat)' }}
           >
-            Cotizar
-          </Link>
+            Consultar precio
+          </a>
         </div>
       </div>
     </article>

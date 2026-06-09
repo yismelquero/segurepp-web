@@ -169,6 +169,20 @@ export default async function ProductoPage({ params }: { params: Promise<Product
               Ref: {producto.sku}
             </p>
 
+            {producto.etiquetas?.length ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {producto.etiquetas.map((etiqueta) => (
+                  <span
+                    key={etiqueta}
+                    className="rounded-full border border-gray-2 bg-gray-1 px-3 py-1 text-[11px] font-semibold text-gray-4"
+                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                  >
+                    {etiqueta}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+
             {producto.especificaciones?.length ? (
               <div className="mt-6 border-t border-gray-2 pt-4">
                 <h2
