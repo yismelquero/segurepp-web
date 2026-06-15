@@ -77,9 +77,10 @@ export function Header() {
               <Image
                 src="/images/logo-segurepp-horizontal-negativo.svg"
                 alt=""
-                width={190}
-                height={52}
-                className="h-12 w-auto"
+                width={260}
+                height={62}
+                sizes="190px"
+                className="h-auto w-[190px]"
                 priority
               />
             </span>

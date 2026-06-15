@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { CategoryTabs } from '@/components/catalog/CategoryTabs'
-import { ProductCard } from '@/components/catalog/ProductCard'
+import { CatalogSearchGrid } from '@/components/catalog/CatalogSearchGrid'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 import { getTodosProductos } from '@/data/productos'
 
@@ -52,24 +51,12 @@ export default function CatalogoPage() {
       <Container className="py-8 lg:py-12">
         <CategoryTabs tabs={CATALOG_TABS} />
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {productos.length > 0 ? (
-            productos.map((p) => <ProductCard key={p.id} producto={p} />)
-          ) : (
-            <div className="col-span-full py-20 text-center">
-              <p className="text-gray-3 text-[14px]" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                Catálogo en preparación. Contáctenos para cotización personalizada.
-              </p>
-              <Link
-                href="/contacto"
-                className="inline-block mt-4 px-6 py-3 bg-amber text-navy font-bold text-[14px] rounded hover:bg-gold transition-colors"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
-              >
-                Solicitar información
-              </Link>
-            </div>
-          )}
-        </div>
+        <CatalogSearchGrid
+          productos={productos}
+          emptyMessage="Catálogo en preparación. Contáctenos para cotización personalizada."
+          emptyCtaHref="/contacto"
+          emptyCtaLabel="Solicitar información"
+        />
       </Container>
     </>
   )

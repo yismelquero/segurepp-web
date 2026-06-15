@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Container } from '@/components/global/Container'
 import { CategoryTabs } from '@/components/catalog/CategoryTabs'
-import { ProductCard } from '@/components/catalog/ProductCard'
+import { CatalogSearchGrid } from '@/components/catalog/CatalogSearchGrid'
 import { Breadcrumb } from '@/components/global/Breadcrumb'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 import { LINEA_LABELS, SLUG_TO_LINEA } from '@/lib/utils'
@@ -96,17 +96,10 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
         <Breadcrumb items={breadcrumb} className="mb-6" />
         <CategoryTabs tabs={tabs} />
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {productos.length > 0 ? (
-            productos.map((p) => <ProductCard key={p.id} producto={p} />)
-          ) : (
-            <div className="col-span-full py-20 text-center">
-              <p className="text-gray-3 text-[14px]" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                Productos próximamente. Contáctenos para cotización.
-              </p>
-            </div>
-          )}
-        </div>
+        <CatalogSearchGrid
+          productos={productos}
+          emptyMessage="Productos próximamente. Contáctenos para cotización."
+        />
 
         <div className="mt-16 p-6 bg-gray-1 rounded-lg border border-gray-2">
           <h2

@@ -7,24 +7,43 @@ import { WhatsAppFloat } from '@/components/global/WhatsAppFloat'
 import { schemaOrganization } from '@/lib/schema-org'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://segurepp.com'
+const SITE_DESCRIPTION =
+  'SEGUREPP provee equipos médicos, seguridad industrial, EPP, uniformes y merchandising para empresas. Cotización y atención personalizada.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: 'SEGUREPP',
   title: {
     default: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes en Bolivia',
     template: '%s | SEGUREPP',
   },
-  description:
-    'Proveedor boliviano de equipos médicos, seguridad industrial y uniformes corporativos. Más de 200 empresas en Bolivia confían en SEGUREPP. Solicite cotización.',
+  description: SITE_DESCRIPTION,
+  icons: {
+    icon: [{ url: '/app-icon.svg', type: 'image/svg+xml', sizes: 'any' }],
+    shortcut: '/app-icon.svg',
+  },
   openGraph: {
+    title: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes',
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
     type: 'website',
     siteName: 'SEGUREPP',
     locale: 'es_BO',
-    // app/opengraph-image.tsx genera la imagen automáticamente con next/og
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@segurepp',
+    title: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes',
+    description: SITE_DESCRIPTION,
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
