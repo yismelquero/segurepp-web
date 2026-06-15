@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Container } from '@/components/global/Container'
 import { CategoryTabs } from '@/components/catalog/CategoryTabs'
@@ -6,24 +7,24 @@ import { CatalogSearchGrid } from '@/components/catalog/CatalogSearchGrid'
 import { Breadcrumb } from '@/components/global/Breadcrumb'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 import { LINEA_LABELS, SLUG_TO_LINEA } from '@/lib/utils'
-import { getProductosByLinea } from '@/data/productos'
+import { getCategoriasByLinea, getProductosByLinea } from '@/data/productos'
 import type { LineaParams } from '@/types'
 
 const VALID_LINEAS = ['equipos-medicos', 'seguridad-industrial', 'uniformes-merchandising']
 
 const SEO_META: Record<string, { title: string; description: string }> = {
   'equipos-medicos': {
-    title: 'Equipos Médicos en Bolivia · Monitores, Diagnóstico y Ecógrafos | SEGUREPP',
+    title: 'Equipos Médicos en Bolivia · Monitores, ECG y Ecógrafos',
     description:
       'Monitores multiparámetro, electrocardiógrafos, ecógrafos y equipos hospitalarios en Bolivia. Asesoría técnica y cotización personalizada para clínicas y hospitales.',
   },
   'seguridad-industrial': {
-    title: 'Seguridad Industrial y EPP en Bolivia · Protección, Señalización | SEGUREPP',
+    title: 'Seguridad Industrial y EPP en Bolivia · Protección Personal',
     description:
       'EPP, cascos, arneses, lentes y señalización industrial en Bolivia. Soluciones para minería, construcción e industria. Solicite cotización.',
   },
   'uniformes-merchandising': {
-    title: 'Catálogo Uniformes y Merchandising · SEGUREPP',
+    title: 'Uniformes y Merchandising Corporativo en Bolivia',
     description:
       'Uniformes corporativos, médicos e industriales con bordado y sublimación en Bolivia. Merchandising empresarial a medida. Imagen corporativa para su empresa.',
   },
@@ -52,6 +53,7 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
   const lineaEnum = SLUG_TO_LINEA[linea]
   const lineaLabel = LINEA_LABELS[lineaEnum] ?? linea
   const productos = getProductosByLinea(lineaEnum)
+  const categorias = getCategoriasByLinea(lineaEnum)
 
   const breadcrumbSchema = [
     { name: 'Inicio', url: '/' },
@@ -95,6 +97,21 @@ export default async function CatalogoLineaPage({ params }: { params: Promise<Li
       <Container className="py-8 lg:py-12">
         <Breadcrumb items={breadcrumb} className="mb-6" />
         <CategoryTabs tabs={tabs} />
+
+        {categorias.length > 0 && (
+          <nav className="mt-6 flex flex-wrap gap-2" aria-label={`Categorías de ${lineaLabel}`}>
+            {categorias.map((categoria) => (
+              <Link
+                key={categoria.slug}
+                href={`/catalogo/${linea}/categoria/${categoria.slug}`}
+                className="rounded border border-gray-2 bg-white px-3 py-2 text-[12px] font-semibold text-navy transition-colors hover:border-blue hover:text-blue"
+                style={{ fontFamily: 'var(--font-montserrat)' }}
+              >
+                {categoria.nombre} ({categoria.count})
+              </Link>
+            ))}
+          </nav>
+        )}
 
         <CatalogSearchGrid
           productos={productos}

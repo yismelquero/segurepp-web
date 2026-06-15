@@ -5,6 +5,10 @@
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://segurepp.com'
 
+function absoluteUrl(url: string) {
+  return url.startsWith('http') ? url : `${SITE_URL}${url}`
+}
+
 // ─── ORGANIZATION + LOCAL BUSINESS + MEDICAL BUSINESS ────────────────────────
 // Incluir en todas las páginas (head global)
 export const schemaOrganization = {
@@ -19,9 +23,9 @@ export const schemaOrganization = {
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/logo.svg`,
+        url: `${SITE_URL}/images/logo-segurepp-horizontal.svg`,
       },
-      image: `${SITE_URL}/og-image.jpg`,
+      image: `${SITE_URL}/opengraph-image`,
       telephone: '+59178407223',
       email: 'info@segurepp.com',
       foundingDate: '2019',
@@ -97,7 +101,7 @@ export function schemaProduct({
     description: descripcion,
     sku,
     ...(marca && { brand: { '@type': 'Brand', name: marca } }),
-    image: imagenUrl,
+    image: absoluteUrl(imagenUrl),
     url: `${SITE_URL}/catalogo/${slug}`,
     category: categoria,
     offers: {

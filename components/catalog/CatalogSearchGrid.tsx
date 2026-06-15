@@ -10,6 +10,7 @@ interface CatalogSearchGridProps {
   emptyMessage: string
   emptyCtaHref?: string
   emptyCtaLabel?: string
+  initialQuery?: string
 }
 
 function normalize(value: string) {
@@ -39,8 +40,9 @@ export function CatalogSearchGrid({
   emptyMessage,
   emptyCtaHref,
   emptyCtaLabel,
+  initialQuery = '',
 }: CatalogSearchGridProps) {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(initialQuery)
   const normalizedQuery = normalize(query.trim())
 
   const filteredProducts = useMemo(() => {

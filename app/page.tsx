@@ -7,7 +7,9 @@ import { FinalCTA } from '@/components/home/FinalCTA'
 import { getClientesActivos } from '@/data/clientes'
 
 export const metadata: Metadata = {
-  title: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes en Bolivia',
+  title: {
+    absolute: 'SEGUREPP — Equipos Médicos, Seguridad Industrial y Uniformes en Bolivia',
+  },
   description:
     'Proveedor boliviano de equipos médicos, seguridad industrial y uniformes corporativos. Más de 200 empresas en Bolivia confían en SEGUREPP. Solicite cotización.',
   alternates: { canonical: '/' },

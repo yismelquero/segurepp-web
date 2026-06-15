@@ -6,7 +6,7 @@ import { schemaBreadcrumb } from '@/lib/schema-org'
 import { getTodosProductos } from '@/data/productos'
 
 export const metadata: Metadata = {
-  title: 'Catálogo de Productos · Equipos, Seguridad, Uniformes | SEGUREPP',
+  title: 'Catálogo de Productos · Equipos Médicos, EPP y Uniformes',
   description:
     'Catálogo completo SEGUREPP: equipos médicos, EPP y uniformes. Solicite cotización sin compromiso para su empresa o institución en Bolivia.',
   alternates: { canonical: '/catalogo' },
@@ -24,7 +24,13 @@ const CATALOG_TABS = [
   { label: 'Uniformes y Merchandising', href: '/catalogo/uniformes-merchandising', active: false },
 ]
 
-export default function CatalogoPage() {
+export default async function CatalogoPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ q?: string; buscar?: string }>
+}) {
+  const queryParams = await searchParams
+  const query = queryParams?.q ?? queryParams?.buscar ?? ''
   const productos = getTodosProductos()
 
   return (
@@ -56,6 +62,7 @@ export default function CatalogoPage() {
           emptyMessage="Catálogo en preparación. Contáctenos para cotización personalizada."
           emptyCtaHref="/contacto"
           emptyCtaLabel="Solicitar información"
+          initialQuery={query}
         />
       </Container>
     </>

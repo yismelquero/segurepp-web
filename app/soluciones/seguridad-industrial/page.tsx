@@ -5,7 +5,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Seguridad Industrial y EPP en Bolivia · SEGUREPP',
+  title: 'Seguridad Industrial y EPP en Bolivia',
   description:
     'Equipos de protección personal, señalización y seguridad ocupacional para minería, construcción e industria en Bolivia. Cobertura nacional y cotización personalizada.',
   alternates: { canonical: '/soluciones/seguridad-industrial' },

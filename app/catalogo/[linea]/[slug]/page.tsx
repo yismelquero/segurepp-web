@@ -22,14 +22,18 @@ export async function generateMetadata({ params }: { params: Promise<ProductoPar
   const producto = getProductoBySlug(slug)
   if (!producto) return { title: 'Producto no encontrado' }
 
-  const title = producto.metaTitle ?? `${producto.nombre} · Bolivia | SEGUREPP`
+  const title = producto.metaTitle?.replace(/\s*\|\s*SEGUREPP$/i, '') ?? `${producto.nombre} en Bolivia`
   const description = producto.metaDescription ?? producto.descripcionCorta
 
   return {
     title,
     description,
     alternates: { canonical: `/catalogo/${linea}/${slug}` },
-    openGraph: { title, description },
+    openGraph: {
+      title,
+      description,
+      images: producto.imagenes?.[0] ? [producto.imagenes[0]] : undefined,
+    },
   }
 }
 

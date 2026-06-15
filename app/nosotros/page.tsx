@@ -3,7 +3,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Sobre SEGUREPP · Empresa de Soluciones Integrales en La Paz, Bolivia',
+  title: 'Sobre SEGUREPP · Soluciones Integrales en La Paz',
   description:
     'SEGUREPP, empresa boliviana fundada en 2019 especializada en equipamiento médico, EPP industrial y uniformes. Atendemos empresas e instituciones en toda Bolivia.',
   alternates: { canonical: '/nosotros' },

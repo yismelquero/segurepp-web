@@ -5030,8 +5030,56 @@ export function getProductosRelacionados(linea: string, slugActual: string): Pro
     .slice(0, 3)
 }
 
+export function getCategoriasByLinea(linea: string) {
+  const categorias = new Map<string, Producto['categoria'] & { count: number }>()
+
+  productos
+    .filter((p) => p.lineaNegocio === linea && p.estado === 'activo')
+    .forEach((producto) => {
+      const categoria = producto.categoria
+      const existente = categorias.get(categoria.slug)
+      categorias.set(categoria.slug, {
+        ...categoria,
+        count: (existente?.count ?? 0) + 1,
+      })
+    })
+
+  return Array.from(categorias.values()).sort((a, b) => b.count - a.count || a.nombre.localeCompare(b.nombre))
+}
+
+export function getCategoriaBySlug(linea: string, categoriaSlug: string) {
+  return getCategoriasByLinea(linea).find((categoria) => categoria.slug === categoriaSlug)
+}
+
+export function getProductosByCategoria(linea: string, categoriaSlug: string): Producto[] {
+  return productos
+    .filter(
+      (p) =>
+        p.lineaNegocio === linea &&
+        p.categoria.slug === categoriaSlug &&
+        p.estado === 'activo'
+    )
+    .sort((a, b) => (b.destacado ? 1 : 0) - (a.destacado ? 1 : 0) || (a.orden ?? 99) - (b.orden ?? 99))
+}
+
 export function getTodosSlugProductos(): Array<{ slug: string; lineaNegocio: string }> {
   return productos
     .filter((p) => p.estado === 'activo')
     .map((p) => ({ slug: p.slug, lineaNegocio: p.lineaNegocio }))
+}
+
+export function getTodosSlugCategorias(): Array<{ slug: string; lineaNegocio: string }> {
+  const categorias = new Map<string, { slug: string; lineaNegocio: string }>()
+
+  productos
+    .filter((p) => p.estado === 'activo')
+    .forEach((producto) => {
+      const key = `${producto.lineaNegocio}:${producto.categoria.slug}`
+      categorias.set(key, {
+        slug: producto.categoria.slug,
+        lineaNegocio: producto.lineaNegocio,
+      })
+    })
+
+  return Array.from(categorias.values())
 }

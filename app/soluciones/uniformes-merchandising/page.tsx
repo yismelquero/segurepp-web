@@ -5,7 +5,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Uniformes y Merchandising Corporativo en Bolivia | SEGUREPP',
+  title: 'Uniformes y Merchandising Corporativo en Bolivia',
   description:
     'Confección de uniformes corporativos, médicos e industriales con bordado y sublimación. Merchandising empresarial personalizado en Bolivia. Atención B2B.',
   alternates: { canonical: '/soluciones/uniformes-merchandising' },

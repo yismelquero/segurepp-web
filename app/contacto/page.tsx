@@ -4,7 +4,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Contacto SEGUREPP · Solicitar Cotización · La Paz, Bolivia',
+  title: 'Contacto · Solicitar Cotización en La Paz, Bolivia',
   description:
     'Contáctenos para cotización o asesoría técnica. Respondemos a la brevedad posible. WhatsApp (+591) 78407223 · info@segurepp.com · La Paz, Bolivia.',
   alternates: { canonical: '/contacto' },

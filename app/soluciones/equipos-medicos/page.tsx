@@ -5,7 +5,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Equipos Médicos en Bolivia · Monitores, Diagnóstico, Ecógrafos | SEGUREPP',
+  title: 'Equipos Médicos en Bolivia · Monitores, ECG y Ecógrafos',
   description:
     'Equipos de diagnóstico médico, monitores multiparámetro, electrocardiógrafos y ecógrafos para clínicas y hospitales en Bolivia. Importación directa con asesoría técnica.',
   alternates: { canonical: '/soluciones/equipos-medicos' },

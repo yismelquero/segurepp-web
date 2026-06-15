@@ -5,7 +5,7 @@ import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
 
 export const metadata: Metadata = {
-  title: 'Soluciones para Empresas · Equipos · Seguridad · Uniformes | SEGUREPP',
+  title: 'Soluciones para Empresas · Equipos, Seguridad y Uniformes',
   description:
     'Tres líneas de negocio: Equipos Médicos, Seguridad Industrial y Uniformes. Un solo proveedor para múltiples necesidades empresariales en Bolivia.',
   alternates: { canonical: '/soluciones' },

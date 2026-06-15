@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getTodosSlugProductos } from '@/data/productos'
+import { getTodosSlugCategorias, getTodosSlugProductos } from '@/data/productos'
 import { LINEA_SLUGS } from '@/lib/utils'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://segurepp.com'
@@ -26,5 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...productRoutes]
+  const categoryRoutes: MetadataRoute.Sitemap = getTodosSlugCategorias().map((categoria) => ({
+    url: `${SITE_URL}/catalogo/${LINEA_SLUGS[categoria.lineaNegocio] ?? 'equipos-medicos'}/categoria/${categoria.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
+  return [...staticRoutes, ...categoryRoutes, ...productRoutes]
 }
