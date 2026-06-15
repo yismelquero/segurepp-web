@@ -871,8 +871,12 @@ export const productos: Producto[] = [
       "calzado de seguridad",
       "punta de acero"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/industrial/20-botas-de-goma-punta-de-acero-negras.svg"
+    ],
+    "imagenesAlt": [
+      "Botas de Goma punta de acero blancas"
+    ],
     "estado": "activo",
     "destacado": false,
     "orden": 21,
@@ -1072,7 +1076,7 @@ export const productos: Producto[] = [
       "antiempañante"
     ],
     "imagenes": [
-      "/productos/industrial/27-gafas de proteccion-antiempañantes.svg"
+      "/productos/industrial/27-gafas-de-proteccion-antiempanantes.svg"
     ],
     "imagenesAlt": [
       "Gafas de protección antiempañantes"
@@ -1321,7 +1325,7 @@ export const productos: Producto[] = [
       "antiempañante"
     ],
     "imagenes": [
-      "/productos/industrial/33-goggles-antiempañantes.svg"
+      "/productos/industrial/33-goggles-antiempanantes.svg"
     ],
     "imagenesAlt": [
       "Goggles Antiempañantes"
@@ -1572,8 +1576,12 @@ export const productos: Producto[] = [
       "papel térmico ecg",
       "ECG"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/medico/39-rollos-de-papel-termico-para-ecg-diametro-interior-de-50mm_30metros.svg"
+    ],
+    "imagenesAlt": [
+      "Rollos de Papel Térmico Para ECG Diámetro Interior de 50mm x 30 metros"
+    ],
     "estado": "activo",
     "destacado": false,
     "orden": 39,
@@ -2364,8 +2372,14 @@ export const productos: Producto[] = [
       "equipos médicos",
       "ultrasonido"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/medico/59-estuches-para-estetoscopios-eko-core-1.svg",
+      "/productos/medico/59-estuches-para-estetoscopios-eko-core-2.svg"
+    ],
+    "imagenesAlt": [
+      "Estuches para sondas",
+      "Estuches para sondas - imagen 2"
+    ],
     "estado": "activo",
     "destacado": false,
     "orden": 58,
@@ -2567,8 +2581,14 @@ export const productos: Producto[] = [
       "electroencefalografía",
       "EEG"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/medico/63-maquina-de-ecg-digital-de-24-canales-modelo-KT88-2400.svg",
+      "/productos/medico/63-maquina-de-ecg-digital-de-24-canales-modelo-KT88-2400-2.svg"
+    ],
+    "imagenesAlt": [
+      "Máquina EEG digital de 24 canales KT88-2400",
+      "Máquina EEG digital de 24 canales KT88-2400 - imagen 2"
+    ],
     "estado": "activo",
     "destacado": false,
     "orden": 63,
@@ -4079,7 +4099,7 @@ export const productos: Producto[] = [
       "industrial"
     ],
     "imagenes": [
-      "/productos/uniformes/91-overol-indiustrial.svg"
+      "/productos/uniformes/91-overol-industrial.svg"
     ],
     "imagenesAlt": [
       "Overol Industrial"
