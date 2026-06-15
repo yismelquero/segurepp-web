@@ -4991,8 +4991,12 @@ export const productos: Producto[] = [
       "merchandising corporativo",
       "branding"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/uniformes/112-kits-corporativos.svg"
+    ],
+    "imagenesAlt": [
+      "Kits Corporativos"
+    ],
     "estado": "activo",
     "destacado": true,
     "orden": 112,

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
@@ -23,6 +24,8 @@ const SOLUCIONES = [
     href: '/soluciones/equipos-medicos',
     catalogHref: '/catalogo/equipos-medicos',
     color: '#0E7490',
+    imageSrc: '/images/solutionsgrid-medical.webp',
+    imageAlt: 'Equipos médicos de diagnóstico y monitoreo',
     tags: ['Monitores', 'Electrocardiógrafos', 'Ecógrafos', 'Insumos médicos'],
   },
   {
@@ -32,6 +35,8 @@ const SOLUCIONES = [
     href: '/soluciones/seguridad-industrial',
     catalogHref: '/catalogo/seguridad-industrial',
     color: '#1A6FBF',
+    imageSrc: '/images/solutionsgrid-industrial.webp',
+    imageAlt: 'Equipos de protección personal para seguridad industrial',
     tags: ['EPP', 'Cascos', 'Señalización', 'Arneses', 'Seguridad ocup.'],
   },
   {
@@ -41,6 +46,8 @@ const SOLUCIONES = [
     href: '/soluciones/uniformes-merchandising',
     catalogHref: '/catalogo/uniformes-merchandising',
     color: '#F8AF00',
+    imageSrc: '/images/solutionsgrid-uniforms.webp',
+    imageAlt: 'Uniformes corporativos y merchandising SEGUREPP',
     tags: ['Uniformes médicos', 'Corporativos', 'Industriales', 'Merchandising'],
   },
 ]
@@ -74,14 +81,18 @@ export default function SolucionesPage() {
               key={sol.title}
               className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}
             >
-              {/* Área visual placeholder */}
+              {/* Área visual */}
               <div
-                className="w-full lg:w-2/5 h-48 lg:h-64 rounded-lg flex items-center justify-center flex-shrink-0"
+                className="relative h-48 w-full flex-shrink-0 overflow-hidden rounded-lg bg-gray-1 lg:h-64 lg:w-2/5"
                 style={{ backgroundColor: `${sol.color}12`, border: `2px solid ${sol.color}25` }}
               >
-                <span className="text-[11px] font-medium opacity-40" style={{ color: sol.color, fontFamily: 'var(--font-montserrat)' }}>
-                  [Imagen de producción — {sol.title}]
-                </span>
+                <Image
+                  src={sol.imageSrc}
+                  alt={sol.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
 
               {/* Contenido */}
