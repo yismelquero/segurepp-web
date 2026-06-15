@@ -872,7 +872,7 @@ export const productos: Producto[] = [
       "punta de acero"
     ],
     "imagenes": [
-      "/productos/industrial/20-botas-de-goma-punta-de-acero-negras.svg"
+      "/productos/industrial/21-botas-de-goma-punta-de-acero-blancas.svg"
     ],
     "imagenesAlt": [
       "Botas de Goma punta de acero blancas"
@@ -912,8 +912,12 @@ export const productos: Producto[] = [
       "EPP",
       "ropa de seguridad"
     ],
-    "imagenes": [],
-    "imagenesAlt": [],
+    "imagenes": [
+      "/productos/industrial/23-overol-desechable-de-bioseguridad.svg"
+    ],
+    "imagenesAlt": [
+      "Overol desechable de Bioseguridad"
+    ],
     "estado": "activo",
     "destacado": false,
     "orden": 23,
@@ -2373,12 +2377,16 @@ export const productos: Producto[] = [
       "ultrasonido"
     ],
     "imagenes": [
-      "/productos/medico/59-estuches-para-estetoscopios-eko-core-1.svg",
-      "/productos/medico/59-estuches-para-estetoscopios-eko-core-2.svg"
+      "/productos/medico/58-estuche-para-sondas.svg",
+      "/productos/medico/58-estuche-para-sondas-1.svg",
+      "/productos/medico/58-estuche-para-sondas-3.svg",
+      "/productos/medico/58-estuche-para-sondas-4.svg"
     ],
     "imagenesAlt": [
       "Estuches para sondas",
-      "Estuches para sondas - imagen 2"
+      "Estuches para sondas - imagen 2",
+      "Estuches para sondas - imagen 3",
+      "Estuches para sondas - imagen 4"
     ],
     "estado": "activo",
     "destacado": false,
@@ -2415,7 +2423,7 @@ export const productos: Producto[] = [
       "accesorios médicos"
     ],
     "imagenes": [
-      "/productos/medico/59-estuches-para-estetoscopios-eko-core-1.svg",
+      "/productos/medico/59-estuches-para-estetoscopios-eko-core.svg",
       "/productos/medico/59-estuches-para-estetoscopios-eko-core-2.svg"
     ],
     "imagenesAlt": [

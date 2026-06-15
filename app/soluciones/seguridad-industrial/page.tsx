@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
@@ -58,12 +59,23 @@ export default function SeguridadIndustrialPage() {
       </div>
 
       <Container className="py-12 lg:py-16">
-        <div className="max-w-3xl mb-12">
-          <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            SEGUREPP provee equipos de protección personal y soluciones de seguridad industrial para empresas
-            en toda Bolivia. Desde EPP individual hasta señalización completa de plantas industriales,
-            atendemos con cobertura nacional y asesoría técnica en cada proyecto.
-          </p>
+        <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_420px]">
+          <div className="max-w-3xl">
+            <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              SEGUREPP provee equipos de protección personal y soluciones de seguridad industrial para empresas
+              en toda Bolivia. Desde EPP individual hasta señalización completa de plantas industriales,
+              atendemos con cobertura nacional y asesoría técnica en cada proyecto.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-1">
+            <Image
+              src="/images/solutionsgrid-industrial.webp"
+              alt="Equipos de protección personal para seguridad industrial"
+              fill
+              sizes="(max-width: 1024px) 100vw, 420px"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">

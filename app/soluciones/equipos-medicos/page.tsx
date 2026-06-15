@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
@@ -59,12 +60,23 @@ export default function EquiposMedicosPage() {
 
       <Container className="py-12 lg:py-16">
         {/* Descripción */}
-        <div className="max-w-3xl mb-12">
-          <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            SEGUREPP provee equipamiento médico de diagnóstico y monitoreo para clínicas, hospitales y centros
-            de salud en toda Bolivia. Trabajamos con importación directa, sin intermediarios, garantizando
-            calidad, soporte técnico y entrega oportuna para cada institución.
-          </p>
+        <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_420px]">
+          <div className="max-w-3xl">
+            <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              SEGUREPP provee equipamiento médico de diagnóstico y monitoreo para clínicas, hospitales y centros
+              de salud en toda Bolivia. Trabajamos con importación directa, sin intermediarios, garantizando
+              calidad, soporte técnico y entrega oportuna para cada institución.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-1">
+            <Image
+              src="/images/solutionsgrid-medical.webp"
+              alt="Equipos médicos de diagnóstico y monitoreo"
+              fill
+              sizes="(max-width: 1024px) 100vw, 420px"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         {/* Aplicaciones */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/global/Container'
 import { schemaBreadcrumb } from '@/lib/schema-org'
@@ -58,12 +59,23 @@ export default function UniformesMerchandisingPage() {
       </div>
 
       <Container className="py-12 lg:py-16">
-        <div className="max-w-3xl mb-12">
-          <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            SEGUREPP diseña y confecciona uniformes a medida para empresas e instituciones en Bolivia.
-            Con técnicas de bordado y sublimación de alta calidad, proyectamos la imagen corporativa
-            de su organización con materiales duraderos y atención personalizada en cada pedido.
-          </p>
+        <div className="mb-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_420px]">
+          <div className="max-w-3xl">
+            <p className="text-gray-4 text-[16px] leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              SEGUREPP diseña y confecciona uniformes a medida para empresas e instituciones en Bolivia.
+              Con técnicas de bordado y sublimación de alta calidad, proyectamos la imagen corporativa
+              de su organización con materiales duraderos y atención personalizada en cada pedido.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-1">
+            <Image
+              src="/images/solutionsgrid-uniforms.webp"
+              alt="Uniformes corporativos y merchandising SEGUREPP"
+              fill
+              sizes="(max-width: 1024px) 100vw, 420px"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
