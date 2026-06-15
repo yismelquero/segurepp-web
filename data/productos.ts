@@ -1503,175 +1503,6 @@ export const productos: Producto[] = [
     "metaDescription": "Este cartucho químico está diseñado para proteger contra vapores orgánicos y gases ácidos específicos, como cloro, cloruro de hidrógeno, dióxido de azufre,…"
   },
   {
-    "id": "epp-108",
-    "nombre": "Auditivos de Copa 3M Optime 98",
-    "sku": "SEG-EPP-108",
-    "slug": "auditivos-de-copa-3m-optime-98",
-    "lineaNegocio": "industrial",
-    "categoria": {
-      "id": "cat-proteccion-auditiva",
-      "nombre": "Protección auditiva",
-      "slug": "proteccion-auditiva"
-    },
-    "descripcionCorta": "Protectores auditivos de copa 3M Peltor Optime 98 diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa optimiza la atenuación.",
-    "descripcionLarga": "Los protectores auditivos de copa 3M Peltor Optime 98 están diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa optimiza la atenuación de bajas y altas frecuencias, proporcionando una protección superior. Cuentan con almohadillas suaves y ligeras que aseguran un sellado cómodo y hermético, permitiendo su uso prolongado en aplicaciones industriales, de construcción o mantenimiento.",
-    "especificaciones": [
-      {
-        "clave": "Disponibilidad",
-        "valor": "En existencia"
-      },
-      {
-        "clave": "Precio",
-        "valor": "Consultar precio"
-      }
-    ],
-    "etiquetas": [
-      "cotización personalizada",
-      "seguridad industrial",
-      "EPP",
-      "protección auditiva",
-      "3M"
-    ],
-    "imagenes": [
-      "/productos/industrial/117-auditivos-de-copa-3m-optime-98.svg"
-    ],
-    "imagenesAlt": [
-      "Auditivos de Copa 3M Optime 98"
-    ],
-    "estado": "activo",
-    "destacado": false,
-    "orden": 108,
-    "metaTitle": "Auditivos de Copa 3M Optime 98 | SEGUREPP",
-    "metaDescription": "Protectores auditivos de copa 3M Peltor Optime 98 diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa optimiza…"
-  },
-  {
-    "id": "epp-109",
-    "nombre": "Auditivos de Copa 3M Optime 98 adosables al casco",
-    "sku": "SEG-EPP-109",
-    "slug": "auditivos-de-copa-3m-optime-98-adosables-al-casco",
-    "lineaNegocio": "industrial",
-    "categoria": {
-      "id": "cat-proteccion-auditiva",
-      "nombre": "Protección auditiva",
-      "slug": "proteccion-auditiva"
-    },
-    "descripcionCorta": "Protectores auditivos 3M Peltor Optime 98 con adaptador para casco, pensados para aplicaciones industriales donde se requiere protección auditiva y uso de casco.",
-    "descripcionLarga": "Los protectores auditivos 3M Peltor Optime 98 con adaptador para casco ofrecen una protección versátil en entornos industriales ruidosos. Su diseño permite acoplarlos fácilmente a la mayoría de los cascos de seguridad, manteniendo un sellado hermético y una atenuación de ruido superior. Gracias a sus almohadillas ergonómicas y puntos de pivote ajustables, garantizan comodidad duradera y máxima seguridad durante jornadas de alta exigencia laboral.",
-    "especificaciones": [
-      {
-        "clave": "Disponibilidad",
-        "valor": "En existencia"
-      },
-      {
-        "clave": "Precio",
-        "valor": "Consultar precio"
-      }
-    ],
-    "etiquetas": [
-      "cotización personalizada",
-      "seguridad industrial",
-      "EPP",
-      "protección auditiva",
-      "casco",
-      "3M"
-    ],
-    "imagenes": [
-      "/productos/industrial/116-auditivos-de-copa-3m-optime-98-adosables-al-casco.svg"
-    ],
-    "imagenesAlt": [
-      "Auditivos de Copa 3M Optime 98 adosables al casco"
-    ],
-    "estado": "activo",
-    "destacado": false,
-    "orden": 109,
-    "metaTitle": "Auditivos de Copa 3M Optime 98 adosables al casco | SEGUREPP",
-    "metaDescription": "Protectores auditivos 3M Peltor Optime 98 con adaptador para casco, pensados para aplicaciones industriales donde se requiere protección auditiva y uso de casco."
-  },
-  {
-    "id": "epp-110",
-    "nombre": "Protector respiratorio deportivo",
-    "sku": "SEG-EPP-110",
-    "slug": "protector-respiratorio-deportivo",
-    "lineaNegocio": "industrial",
-    "categoria": {
-      "id": "cat-proteccion-respiratoria",
-      "nombre": "Protección respiratoria",
-      "slug": "proteccion-respiratoria"
-    },
-    "descripcionCorta": "Protector respiratorio con filtro deportivo, fabricado en malla tipo mesh 100% poliamida, interior en neopreno y arnés metálico ajustable para un sellado cómodo.",
-    "descripcionLarga": "Protector respiratorio con filtro deportivo, fabricado en malla tipo mesh 100% poliamida, con la parte interna en neopreno y arnés metálico ajustable para un sellado cómodo. Incluye válvulas de exhalación negras con rejilla para facilitar la respiración. Múltiples orificios de ventilación adicionales en el frente ayudan a mejorar el flujo de aire. Una correa elástica ancha rodea la parte posterior para un ajuste seguro durante actividades físicas.",
-    "especificaciones": [
-      {
-        "clave": "Disponibilidad",
-        "valor": "En existencia"
-      },
-      {
-        "clave": "Precio",
-        "valor": "Consultar precio"
-      }
-    ],
-    "etiquetas": [
-      "cotización personalizada",
-      "seguridad industrial",
-      "EPP",
-      "protección respiratoria"
-    ],
-    "imagenes": [
-      "/productos/industrial/118-protector-respiratorio-deportivo-1.svg",
-      "/productos/industrial/118-protector-respiratorio-deportivo-2.svg"
-    ],
-    "imagenesAlt": [
-      "Protector respiratorio deportivo",
-      "Protector respiratorio deportivo - imagen 2"
-    ],
-    "estado": "activo",
-    "destacado": false,
-    "orden": 110,
-    "metaTitle": "Protector respiratorio deportivo | SEGUREPP",
-    "metaDescription": "Protector respiratorio con filtro deportivo, fabricado en malla tipo mesh 100% poliamida, interior en neopreno y arnés metálico ajustable para un sellado…"
-  },
-  {
-    "id": "epp-111",
-    "nombre": "Rodilleras",
-    "sku": "SEG-EPP-111",
-    "slug": "rodilleras",
-    "lineaNegocio": "industrial",
-    "categoria": {
-      "id": "cat-ergonomia-soporte",
-      "nombre": "Ergonomía y soporte",
-      "slug": "ergonomia-soporte"
-    },
-    "descripcionCorta": "Rodilleras de seguridad para entornos industriales, con cubierta rígida frontal reforzada y base acolchada de tela negra para comodidad y protección durante el trabajo.",
-    "descripcionLarga": "Rodilleras diseñadas para ofrecer máxima seguridad en entornos industriales. Presentan una cubierta rígida frontal reforzada con remaches metálicos para mayor resistencia al impacto y una base acolchada de tela negra que garantiza comodidad y ajuste ergonómico durante largas jornadas de trabajo intenso.",
-    "especificaciones": [
-      {
-        "clave": "Disponibilidad",
-        "valor": "En existencia"
-      },
-      {
-        "clave": "Precio",
-        "valor": "Consultar precio"
-      }
-    ],
-    "etiquetas": [
-      "cotización personalizada",
-      "seguridad industrial",
-      "EPP",
-      "ergonomía y soporte"
-    ],
-    "imagenes": [
-      "/productos/industrial/119-rodilleras.svg"
-    ],
-    "imagenesAlt": [
-      "Rodilleras"
-    ],
-    "estado": "activo",
-    "destacado": false,
-    "orden": 111,
-    "metaTitle": "Rodilleras | SEGUREPP",
-    "metaDescription": "Rodilleras de seguridad para entornos industriales, con cubierta rígida frontal reforzada y base acolchada de tela negra para comodidad y protección durante el trabajo."
-  },
-  {
     "id": "med-038",
     "nombre": "Rollos de Papel Térmico Para ECG Diámetro Interior de 50mm x 20metros",
     "sku": "SEG-MED-038",
@@ -2828,6 +2659,341 @@ export const productos: Producto[] = [
     "orden": 65,
     "metaTitle": "Monitor de Signos Vitales | SEGUREPP",
     "metaDescription": "El monitor multifuncional de signos vitales modelo CMS8500 marca CONTEC cuenta con una gran cantidad de funciones adecuadas para la monitorización clínica…"
+  },
+  {
+    "id": "med-112",
+    "nombre": "Otoscopio",
+    "sku": "SEG-MED-112",
+    "slug": "otoscopio",
+    "lineaNegocio": "medico",
+    "categoria": {
+      "id": "cat-monitoreo-diagnostico",
+      "nombre": "Monitoreo y diagnóstico",
+      "slug": "monitoreo-diagnostico"
+    },
+    "descripcionCorta": "Marca ScopeAround. Pantalla IPS. Videoscopio inteligente HD de 720p con luz. Cámara para extracción de cerumen. Ángulo de visión real: 78 grados. Zoom de 1.5x.",
+    "descripcionLarga": "Marca ScopeAround. Pantalla IPS. Videoscopio inteligente HD de 720p con luz. Cámara para extracción de cerumen. Ángulo de visión real: 78 grados. Zoom de 1.5x.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "equipos médicos",
+      "diagnóstico",
+      "otoscopio"
+    ],
+    "imagenes": [
+      "/productos/medico/112-otoscopio.svg"
+    ],
+    "imagenesAlt": [
+      "Otoscopio"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 112,
+    "metaTitle": "Otoscopio | SEGUREPP",
+    "metaDescription": "Marca ScopeAround. Pantalla IPS. Videoscopio inteligente HD de 720p con luz. Cámara para extracción de cerumen. Ángulo de visión real: 78 grados. Zoom de…"
+  },
+  {
+    "id": "med-113",
+    "nombre": "Estetoscopio Eko Core 500",
+    "sku": "SEG-MED-113",
+    "slug": "estetoscopio-eko-core-500",
+    "lineaNegocio": "medico",
+    "categoria": {
+      "id": "cat-accesorios-medicos",
+      "nombre": "Accesorios médicos",
+      "slug": "accesorios-medicos"
+    },
+    "descripcionCorta": "Pantalla a todo color muestra el ECG de 1 derivación, información del examen y configuraciones básicas del dispositivo. Amplificación de sonido hasta 40x. El ECG de 3 derivaciones…",
+    "descripcionLarga": "Pantalla a todo color muestra el ECG de 1 derivación, información del examen y configuraciones básicas del dispositivo. Amplificación de sonido hasta 40x. El ECG de 3 derivaciones proporciona una visión completa del corazón de su paciente. Acceso a la aplicación Eko, permite visualización en tiempo real, escucha inalámbrica, grabación de un solo sonido y más.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "equipos médicos",
+      "accesorios médicos",
+      "estetoscopio"
+    ],
+    "imagenes": [
+      "/productos/medico/113-estetoscopio-eko-core-500.svg"
+    ],
+    "imagenesAlt": [
+      "Estetoscopio Eko Core 500"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 113,
+    "metaTitle": "Estetoscopio Eko Core 500 | SEGUREPP",
+    "metaDescription": "Pantalla a todo color muestra el ECG de 1 derivación, información del examen y configuraciones básicas del dispositivo. Amplificación de sonido hasta 40x.…"
+  },
+  {
+    "id": "med-114",
+    "nombre": "Vivid i BT 12 2016",
+    "sku": "SEG-MED-114",
+    "slug": "vivid-i-bt-12-2016",
+    "lineaNegocio": "medico",
+    "categoria": {
+      "id": "cat-ecografos",
+      "nombre": "Ecógrafos",
+      "slug": "ecografos"
+    },
+    "descripcionCorta": "Incluye sonda sectorial S3C 2016, batería nueva y aplicaciones abiertas. Opcional: sonda pediátrica sectorial 6RS.",
+    "descripcionLarga": "Incluye sonda sectorial S3C 2016, batería nueva y aplicaciones abiertas. Opcional: sonda pediátrica sectorial 6RS.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "equipos médicos",
+      "ecógrafos",
+      "ultrasonido"
+    ],
+    "imagenes": [
+      "/productos/medico/114-vivid-i-bt-12-2016.svg"
+    ],
+    "imagenesAlt": [
+      "Vivid i BT 12 2016"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 114,
+    "metaTitle": "Vivid i BT 12 2016 | SEGUREPP",
+    "metaDescription": "Incluye sonda sectorial S3C 2016, batería nueva y aplicaciones abiertas. Opcional: sonda pediátrica sectorial 6RS."
+  },
+  {
+    "id": "epp-115",
+    "nombre": "Barbijo 3M N95",
+    "sku": "SEG-EPP-115",
+    "slug": "barbijo-3m-n95",
+    "lineaNegocio": "industrial",
+    "categoria": {
+      "id": "cat-proteccion-respiratoria",
+      "nombre": "Protección respiratoria",
+      "slug": "proteccion-respiratoria"
+    },
+    "descripcionCorta": "El respirador 3M N95 es un equipo de protección de alta eficiencia diseñado para filtrar al menos el 95% de las partículas suspendidas en el aire. Cuenta con una estructura ergonómica que…",
+    "descripcionLarga": "El respirador 3M N95 es un equipo de protección de alta eficiencia diseñado para filtrar al menos el 95% de las partículas suspendidas en el aire. Cuenta con una estructura ergonómica que garantiza un ajuste hermético al rostro, reduciendo la exposición a contaminantes y patógenos. Es ligero, duradero y ofrece una respiración cómoda, siendo una herramienta esencial en entornos clínicos e industriales para asegurar la salud respiratoria del usuario.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "seguridad industrial",
+      "EPP",
+      "protección respiratoria",
+      "3M",
+      "N95"
+    ],
+    "imagenes": [
+      "/productos/industrial/115-barbijo-3m-n95.svg"
+    ],
+    "imagenesAlt": [
+      "Barbijo 3M N95"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 115,
+    "metaTitle": "Barbijo 3M N95 | SEGUREPP",
+    "metaDescription": "El respirador 3M N95 es un equipo de protección de alta eficiencia diseñado para filtrar al menos el 95% de las partículas suspendidas en el aire. Cuenta…"
+  },
+  {
+    "id": "epp-116",
+    "nombre": "Auditivos de Copa 3M Optime 98 adosables al casco",
+    "sku": "SEG-EPP-116",
+    "slug": "auditivos-de-copa-3m-optime-98-adosables-al-casco",
+    "lineaNegocio": "industrial",
+    "categoria": {
+      "id": "cat-proteccion-auditiva",
+      "nombre": "Protección auditiva",
+      "slug": "proteccion-auditiva"
+    },
+    "descripcionCorta": "Los protectores auditivos 3M Peltor Optime 98 con adaptador para casco ofrecen una protección versátil en entornos industriales ruidosos. Su diseño permite acoplarlos fácilmente a la…",
+    "descripcionLarga": "Los protectores auditivos 3M Peltor Optime 98 con adaptador para casco ofrecen una protección versátil en entornos industriales ruidosos. Su diseño permite acoplarlos fácilmente a la mayoría de los cascos de seguridad, manteniendo un sellado hermético y una atenuación de ruido superior. Gracias a sus almohadillas ergonómicas y puntos de pivote ajustables, garantizan comodidad duradera y máxima seguridad durante jornadas de alta exigencia laboral.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "seguridad industrial",
+      "EPP",
+      "protección auditiva",
+      "casco",
+      "3M"
+    ],
+    "imagenes": [
+      "/productos/industrial/116-auditivos-de-copa-3m-optime-98-adosables-al-casco.svg"
+    ],
+    "imagenesAlt": [
+      "Auditivos de Copa 3M Optime 98 adosables al casco"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 116,
+    "metaTitle": "Auditivos de Copa 3M Optime 98 adosables al casco | SEGUREPP",
+    "metaDescription": "Los protectores auditivos 3M Peltor Optime 98 con adaptador para casco ofrecen una protección versátil en entornos industriales ruidosos. Su diseño…"
+  },
+  {
+    "id": "epp-117",
+    "nombre": "Auditivos de Copa 3M Optime 98",
+    "sku": "SEG-EPP-117",
+    "slug": "auditivos-de-copa-3m-optime-98",
+    "lineaNegocio": "industrial",
+    "categoria": {
+      "id": "cat-proteccion-auditiva",
+      "nombre": "Protección auditiva",
+      "slug": "proteccion-auditiva"
+    },
+    "descripcionCorta": "Los protectores auditivos de copa 3M Peltor Optime 98 están diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa optimiza la atenuación de bajas y altas…",
+    "descripcionLarga": "Los protectores auditivos de copa 3M Peltor Optime 98 están diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa optimiza la atenuación de bajas y altas frecuencias, proporcionando una protección superior. Cuentan con almohadillas suaves y ligeras que aseguran un sellado cómodo y hermético, permitiendo su uso prolongado en aplicaciones industriales, de construcción o mantenimiento.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "seguridad industrial",
+      "EPP",
+      "protección auditiva",
+      "3M"
+    ],
+    "imagenes": [
+      "/productos/industrial/117-auditivos-de-copa-3m-optime-98.svg"
+    ],
+    "imagenesAlt": [
+      "Auditivos de Copa 3M Optime 98"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 117,
+    "metaTitle": "Auditivos de Copa 3M Optime 98 | SEGUREPP",
+    "metaDescription": "Los protectores auditivos de copa 3M Peltor Optime 98 están diseñados para entornos con niveles de ruido moderados a altos. Su diseño de doble copa…"
+  },
+  {
+    "id": "epp-118",
+    "nombre": "Protector respiratorio deportivo",
+    "sku": "SEG-EPP-118",
+    "slug": "protector-respiratorio-deportivo",
+    "lineaNegocio": "industrial",
+    "categoria": {
+      "id": "cat-proteccion-respiratoria",
+      "nombre": "Protección respiratoria",
+      "slug": "proteccion-respiratoria"
+    },
+    "descripcionCorta": "Máscara facial con filtro deportivo fabricado en malla tipo mesh 100% poliamida, con la parte interna en neopreno y arnés metálico ajustable para un sellado cómodo y un par de válvulas de…",
+    "descripcionLarga": "Máscara facial con filtro deportivo fabricado en malla tipo mesh 100% poliamida, con la parte interna en neopreno y arnés metálico ajustable para un sellado cómodo y un par de válvulas de exhalación negras con rejilla para facilitar la respiración. Múltiples orificios de ventilación adicionales están presentes en el frente para mejorar el flujo de aire. Una correa elástica ancha rodea la parte posterior para un ajuste seguro durante las actividades físicas.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "seguridad industrial",
+      "EPP",
+      "protección respiratoria"
+    ],
+    "imagenes": [
+      "/productos/industrial/118-protector-respiratorio-deportivo-1.svg",
+      "/productos/industrial/118-protector-respiratorio-deportivo-2.svg"
+    ],
+    "imagenesAlt": [
+      "Protector respiratorio deportivo",
+      "Protector respiratorio deportivo - imagen 2"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 118,
+    "metaTitle": "Protector respiratorio deportivo | SEGUREPP",
+    "metaDescription": "Máscara facial con filtro deportivo fabricado en malla tipo mesh 100% poliamida, con la parte interna en neopreno y arnés metálico ajustable para un…"
+  },
+  {
+    "id": "epp-119",
+    "nombre": "Rodilleras",
+    "sku": "SEG-EPP-119",
+    "slug": "rodilleras",
+    "lineaNegocio": "industrial",
+    "categoria": {
+      "id": "cat-ergonomia-soporte",
+      "nombre": "Ergonomía y soporte",
+      "slug": "ergonomia-soporte"
+    },
+    "descripcionCorta": "Rodilleras diseñadas para ofrecer máxima seguridad en entornos industriales. Presentan una cubierta rígida frontal reforzada con remaches metálicos para mayor resistencia al impacto y una…",
+    "descripcionLarga": "Rodilleras diseñadas para ofrecer máxima seguridad en entornos industriales. Presentan una cubierta rígida frontal reforzada con remaches metálicos para mayor resistencia al impacto y una base acolchada de tela negra que garantiza comodidad y ajuste ergonómico durante largas jornadas de trabajo intenso.",
+    "especificaciones": [
+      {
+        "clave": "Disponibilidad",
+        "valor": "En existencia"
+      },
+      {
+        "clave": "Precio",
+        "valor": "Consultar precio"
+      }
+    ],
+    "etiquetas": [
+      "cotización personalizada",
+      "seguridad industrial",
+      "EPP",
+      "ergonomía y soporte"
+    ],
+    "imagenes": [
+      "/productos/industrial/119-rodilleras.svg"
+    ],
+    "imagenesAlt": [
+      "Rodilleras"
+    ],
+    "estado": "activo",
+    "destacado": false,
+    "orden": 119,
+    "metaTitle": "Rodilleras | SEGUREPP",
+    "metaDescription": "Rodilleras diseñadas para ofrecer máxima seguridad en entornos industriales. Presentan una cubierta rígida frontal reforzada con remaches metálicos para…"
   },
   {
     "id": "uni-066",
