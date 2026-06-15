@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import { ProductActions } from '@/components/product/ProductActions'
+import { ProductGallery } from '@/components/product/ProductGallery'
 import { ProductCard } from '@/components/catalog/ProductCard'
 import { Breadcrumb } from '@/components/global/Breadcrumb'
 import { Container } from '@/components/global/Container'
@@ -88,44 +88,11 @@ export default async function ProductoPage({ params }: { params: Promise<Product
 
           {/* Galería */}
           <div>
-            <div className="relative aspect-[4/3] bg-gray-1 rounded-lg overflow-hidden">
-              {imgPrincipal ? (
-                <Image
-                  src={imgPrincipal}
-                  alt={producto.imagenesAlt?.[0] ?? producto.nombre}
-                  fill
-                  priority
-                  className="object-contain p-6"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-gray-3 text-[12px]" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                    [Fotografía de producción — sustituir imagen real]
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Thumbnails */}
-            {producto.imagenes?.length > 1 && (
-              <div className="flex gap-2 mt-3 overflow-x-auto">
-                {producto.imagenes.slice(0, 6).map((img, i) => (
-                  <div
-                    key={i}
-                    className="flex-none w-16 h-16 rounded border border-gray-2 overflow-hidden bg-gray-1"
-                  >
-                    <Image
-                      src={img}
-                      alt={producto.imagenesAlt?.[i] ?? `${producto.nombre} vista ${i + 1}`}
-                      width={64}
-                      height={64}
-                      className="object-contain w-full h-full p-1"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+            <ProductGallery
+              imagenes={producto.imagenes ?? []}
+              alts={producto.imagenesAlt ?? []}
+              nombre={producto.nombre}
+            />
           </div>
 
           {/* Información */}
